@@ -47,7 +47,7 @@ def request(query, params):
 
     params['url'] = base_url + search_path
 
-    params['headers']['User-Agent'] = gen_useragent('Windows NT 6.3; WOW64')
+    params['headers']['User-Agent'] = gen_useragent('Macintosh; Intel Mac OS X 10_13_6')
 
     return params
 
@@ -69,7 +69,7 @@ def response(resp):
         link = result.xpath('.//h3/a')[0]
         url = link.attrib.get('href')
         title = extract_text(link)
-        content = extract_text(result.xpath('.//p'))
+        content = extract_text(result.xpath('.//div/p'))
 
         # append result
         results.append({'url': url,
@@ -81,7 +81,7 @@ def response(resp):
         link = result.xpath('.//h2/a')[0]
         url = link.attrib.get('href')
         title = extract_text(link)
-        content = extract_text(result.xpath('.//p'))
+        content = extract_text(result.xpath('.//div/p'))
 
         # append result
         results.append({'url': url,
