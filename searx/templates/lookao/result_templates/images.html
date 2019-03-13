@@ -1,6 +1,6 @@
 <div class="images_result">
-    <a class="zoom_in" href="{{ result.img_src }}">
-        <div class="result-item">
+    <a class="zoom_in" href="{{ result.img_src }}" {% if results_on_new_tab %}target="_blank" rel="noopener noreferrer"{% else %}rel="noreferrer"{% endif %}>
+        <div class="result_item">
             <img src="{% if result.thumbnail_src %}{{ image_proxify(result.thumbnail_src) }}{% else %}{{ image_proxify(result.img_src) }}{% endif %}"/>
             <div class="hover_content">
                 <a href="{{ result.url }}" {% if results_on_new_tab %}target="_blank" rel="noopener noreferrer"{% else %}rel="noreferrer"{% endif %}>
