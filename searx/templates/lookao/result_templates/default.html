@@ -1,0 +1,5 @@
+<div class="result {{ result.class }}">
+    <h3 class="result_title"><a href="{{ result.url }}" {% if results_on_new_tab %}target="_blank" rel="noopener noreferrer"{% else %}rel="noreferrer"{% endif %}>{{ result.title|safe }}</a></h3>
+    <span class="result_url">{{ result.pretty_url }}{% if result.publishedDate %}<span class="published_date">{{ result.publishedDate }}</span>{% endif %}</span>
+    <p class="result_desc">{% if result.img_src %}<img src="{{ image_proxify(result.img_src) }}" class="image" />{% endif %}{% if result.content %}{{ result.content|safe }}<br class="last"/>{% endif %}</p>
+</div>

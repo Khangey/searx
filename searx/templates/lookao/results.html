@@ -1,0 +1,77 @@
+{% extends "lookao/base.html" %}
+{% block title %}{{ q|e }} - {% endblock %}
+{% block content %}
+{% include 'lookao/header.html' %}
+
+<article id="content_wrapper">
+    <div class="search_options">
+        <form method="{{ method or 'POST' }}" action="{{ url_for('index') }}" autocomplete="off">
+            <input type="hidden" name="q" value="{{ q|e }}" />
+            <div class="options_list">
+                {% for category in categories %}
+                <button type="submit" name="category_{{ category }}" value="1" {% if category in selected_categories %}class="category active" disabled{% else %}class="category"{% endif %}>{{ _(category) }}</button>
+                {% endfor %}
+                <span class="filter">
+                    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3266"><path d="M128 252.288C128 230.784 146.432 213.333333 169.130667 213.333333h685.738666c22.698667 0 41.130667 17.450667 41.130667 38.954667s-18.432 38.954667-41.130667 38.954667H169.130667c-22.698667 0-41.130667-17.450667-41.130667-38.954667zM292.565333 512c0-21.504 18.432-38.954667 41.130667-38.954667h356.608c22.698667 0 41.130667 17.450667 41.130667 38.954667s-18.432 38.954667-41.130667 38.954667H333.653333c-22.698667 0-41.130667-17.450667-41.130666-38.954667z m150.869334 220.757333c-22.741333 0-41.130667 17.450667-41.130667 38.954667s18.389333 38.954667 41.130667 38.954667h137.130666c22.741333 0 41.130667-17.450667 41.130667-38.954667s-18.389333-38.954667-41.130667-38.954667h-137.130666z" p-id="3267"></path></svg>
+                    筛选
+                </span>
+            </div>
+            <div class="modular_content">
+                {% if number_of_results != '0' %}
+                约有 {{ number_of_results }} 条结果
+                {% endif %}
+                {% if not results and not answers %}
+                <div class="no_results">
+                    没找到相关结果：{{ q|e }}
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    {% if infoboxes %}
+    <div id="infoboxes">
+      {% for infobox in infoboxes %}
+         {% include 'lookao/infobox.html' %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div id="results_list">
+        {% for result in results %}
+            {% if result['template'] %}
+                {% include get_result_template('lookao', result['template']) %}
+            {% else %}
+                {% include 'lookao/result_templates/default.html' %}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    {% if paging %}
+    <div class="pagination">
+        <form class="previous_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
+            {% for category in selected_categories %}
+            <input type="hidden" name="category_{{ category }}" value="1"/>
+            {% endfor %}
+            <input type="hidden" name="q" value="{{ q|e }}" />
+            <input type="hidden" name="pageno" value="{{ pageno-1 }}" />
+            <button class="link" type="submit" {% if pageno == 1 %} disabled{% endif %}>
+                <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3596"><path d="M295.237833 463.886654l450.87471 437.617385-47.180772 48.610082-450.87471-437.617385 47.180772-48.610082ZM698.740451 66.210341l47.648176 48.149451-419.911362 415.539746-47.648176-48.149451 419.911362-415.539746Z" p-id="3597"></path></svg>
+                {{ _('previous page') }}
+            </button>
+        </form>
+        <form class="next_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
+            {% for category in selected_categories %}
+            <input type="hidden" name="category_{{ category }}" value="1"/>
+            {% endfor %}
+            <input type="hidden" name="q" value="{{ q|e }}" />
+            <input type="hidden" name="pageno" value="{{ pageno+1 }}" />
+            <button class="link" type="submit">
+                {{ _('next page') }}
+                <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5558"><path d="M672 512l-384 384c-12.8 12.8-12.8 32 0 44.8 12.8 12.8 32 12.8 44.8 0l403.2-403.2c6.4-6.4 12.8-19.2 12.8-25.6 0-6.4 0-19.2-6.4-25.6L332.8 83.2C320 70.4 300.8 70.4 288 83.2S275.2 115.2 288 128L672 512z" p-id="5559"></path></svg>
+            </button>
+        </form>
+    </div>
+    {% endif %}
+</article>
+{% endblock %}
