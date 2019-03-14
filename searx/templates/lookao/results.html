@@ -3,7 +3,7 @@
 {% block content %}
 {% include 'lookao/header.html' %}
 
-<article id="content_wrapper">
+<article id="content_wrapper" class="{% for category in selected_categories %}{{ category }}{% endfor %}_content_wrapper">
     <div class="search_options">
         <form method="{{ method or 'POST' }}" action="{{ url_for('index') }}" autocomplete="off">
             <input type="hidden" name="q" value="{{ q|e }}" />
@@ -38,7 +38,7 @@
     </div>
     {% endif %}
 
-    <div id="results_list">
+    <div class="results_container">
         {% for result in results %}
             {% if result['template'] %}
                 {% include get_result_template('lookao', result['template']) %}
