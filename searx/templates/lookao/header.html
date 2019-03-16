@@ -2,7 +2,7 @@
     <div class="header_search">
         <div class="header_logo">
         </div>
-        <form id="search_form" class="search_form" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
+        <form class="search_form" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
             <input class="search_keywords" name="q" {% if q %}value="{{ q }}"{% endif %} type="text" tabindex="1" autocomplete="off" autocapitalize="off" autocorrect="off" />
             <input type="hidden" name="language" value="{{ current_language }}" />
             {% for category in selected_categories %}

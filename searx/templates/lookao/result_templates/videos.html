@@ -1,0 +1,10 @@
+<div class="videos_result">
+    <a href="{{ result.url }}" {% if results_on_new_tab %}target="_blank" rel="noopener noreferrer"{% else %}rel="noreferrer"{% endif %}><img class="videos_result_thumbnail" src="{{ image_proxify(result.thumbnail) }}" alt="{{ result.title|striptags }}"/></a>
+    <div class="videos_result_desc">
+        <h3 class="videos_result_title"><a href="{{ result.url }}" {% if results_on_new_tab %}target="_blank" rel="noopener noreferrer"{% else %}rel="noreferrer"{% endif %}>{{ result.title|safe }}</a></h3>
+        <span class="videos_result_url">{{ result.url }}</span>
+        {% if result.content %}
+        <p class="videos_result_content">{{ result.content|safe }}</p>
+        {% endif %}
+    </div>
+</div>
