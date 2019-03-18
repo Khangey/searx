@@ -19,7 +19,7 @@
     {% block content %}
     {% endblock %}
 </main>
-{% include 'lookao/footer.html' %}
+{% block footer %}{% endblock %}
 <script src="{{ url_for('static', filename='js/script.min.js') }}?v=1"></script>
 </body>
 </html>

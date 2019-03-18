@@ -1,5 +1,7 @@
 {% extends "lookao/base.html" %}
 {% block title %}{{ q|e }} - {% endblock %}
+{% block footer %}{% include 'lookao/footer.html' %}{% endblock %}
+
 {% block content %}
 {% include 'lookao/header.html' %}
 
@@ -38,11 +40,11 @@
     </div>
 
     {% if infoboxes %}
-    <div id="infoboxes">
+    <aside class="sidebar_container">
       {% for infobox in infoboxes %}
          {% include 'lookao/infobox.html' %}
       {% endfor %}
-    </div>
+    </aside>
     {% endif %}
 
     <div class="results_container">

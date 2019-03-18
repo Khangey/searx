@@ -1,0 +1,16 @@
+{% if infobox.content %}
+<div class="infobox">
+    {% if infobox.img_src %}<img class="infobox_image" src="{{ image_proxify(infobox.img_src) }}" title="{{ infobox.infobox|striptags }}" alt="{{ infobox.infobox|striptags }}" />{% endif %}
+
+    <h2 class="infobox_title">{{ infobox.infobox }}</h2>
+    <p>{{ infobox.content }}</p>
+
+    {% if infobox.urls %}
+    <div class="infobox_urls">
+        {% for url in infobox.urls %}
+        <span class="infobox_url"><a href="{{ url.url }}" {% if results_on_new_tab %}target="_blank" rel="noopener noreferrer"{% else %}rel="noreferrer"{% endif %}>{{ url.title }}</a></span>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endif %}
