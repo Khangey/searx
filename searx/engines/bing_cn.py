@@ -13,46 +13,42 @@
  @todo        publishedDate
 """
 
-from lxml import html
+from lxml.html import fromstring
 from searx.engines.xpath import extract_text
 from searx.url_utils import urlencode
-from searx.utils import match_language, gen_useragent
+from searx.utils import gen_useragent
 
 # engine dependent config
 categories = ['general']
 paging = True
-language_support = True
-supported_languages_url = 'https://www.bing.com/account/general'
-language_aliases = {'zh-CN': 'zh-CHS', 'zh-TW': 'zh-CHT', 'zh-HK': 'zh-CHT'}
+language_support = False
+time_range_support = True
 
 # search-url
 base_url = 'https://www.bing.com/'
-search_string = 'search?{query}&first={offset}{extra}'
+search_string = 'search?{query}&first={offset}'
+time_range_url = '&filters={range}'
 
+time_range_dict = {'day': 'ex1:"ez1"',
+                   'week': 'ex1:"ez2"',
+                   'month': 'ex1:"ez3"'}
 
 # do search-request
 def request(query, params):
     offset = (params['pageno'] - 1) * 10 + 1
 
-    if params['language'] == 'zh-CN':
-        extra = ''
-        query = query.decode('utf-8').encode('utf-8')
-    elif params['language'] == 'all':
-        extra = '&ensearch=1'
-        query = query.decode('utf-8').encode('utf-8')
-    else:
-        extra = '&ensearch=1'
-        lang = match_language(params['language'], supported_languages, language_aliases)
-        query = u'language:{} {}'.format(lang.split('-')[0].upper(), query.decode('utf-8')).encode('utf-8')
+    query = query.decode('utf-8').encode('utf-8')
 
     search_path = search_string.format(
         query=urlencode({'q': query}),
-        offset=offset,
-        extra=extra)
+        offset=offset)
 
     params['url'] = base_url + search_path
 
     params['headers']['User-Agent'] = gen_useragent('Macintosh; Intel Mac OS X 10_13_6')
+
+    if params['time_range'] in time_range_dict:
+        params['url'] += time_range_url.format(range=time_range_dict[params['time_range']])
 
     return params
 
@@ -61,7 +57,7 @@ def request(query, params):
 def response(resp):
     results = []
 
-    dom = html.fromstring(resp.text)
+    dom = fromstring(resp.text)
 
     try:
         count = dom.xpath('//span[@class="sb_count"]/text()')[0].split(' ')
@@ -74,23 +70,13 @@ def response(resp):
         pass
 
     # parse results
-    for result in dom.xpath('//div[@class="sa_cc"]'):
-        link = result.xpath('.//h3/a')[0]
-        url = link.attrib.get('href')
-        title = extract_text(link)
-        content = extract_text(result.xpath('.//div/p'))
+    lists = dom.xpath('//ol[@id="b_results"]')[0]
 
-        # append result
-        results.append({'url': url,
-                        'title': title,
-                        'content': content})
-
-    # parse results again if nothing is found yet
-    for result in dom.xpath('//li[@class="b_algo"]'):
+    for result in lists.xpath('//li[@class="b_algo"]'):
         link = result.xpath('.//h2/a')[0]
         url = link.attrib.get('href')
         title = extract_text(link)
-        content = extract_text(result.xpath('.//div/p'))
+        content = extract_text(result.xpath('.//div[@class="b_caption"]/p[1]'))
 
         # append result
         results.append({'url': url,
@@ -99,17 +85,3 @@ def response(resp):
 
     # return results
     return results
-
-
-# get supported languages from their site
-def _fetch_supported_languages(resp):
-    supported_languages = []
-    dom = html.fromstring(resp.text)
-    options = dom.xpath('//div[@id="limit-languages"]//input')
-    for option in options:
-        code = option.xpath('./@id')[0].replace('_', '-')
-        if code == 'nb':
-            code = 'no'
-        supported_languages.append(code)
-
-    return supported_languages

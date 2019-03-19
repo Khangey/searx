@@ -15,14 +15,20 @@
                 {% endfor %}
                 <span class="filter">
                     <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3266"><path d="M128 252.288C128 230.784 146.432 213.333333 169.130667 213.333333h685.738666c22.698667 0 41.130667 17.450667 41.130667 38.954667s-18.432 38.954667-41.130667 38.954667H169.130667c-22.698667 0-41.130667-17.450667-41.130667-38.954667zM292.565333 512c0-21.504 18.432-38.954667 41.130667-38.954667h356.608c22.698667 0 41.130667 17.450667 41.130667 38.954667s-18.432 38.954667-41.130667 38.954667H333.653333c-22.698667 0-41.130667-17.450667-41.130666-38.954667z m150.869334 220.757333c-22.741333 0-41.130667 17.450667-41.130667 38.954667s18.389333 38.954667 41.130667 38.954667h137.130666c22.741333 0 41.130667-17.450667 41.130667-38.954667s-18.389333-38.954667-41.130667-38.954667h-137.130666z" p-id="3267"></path></svg>
-                    <span class="current_language"></span>
-                    <select class="select_language" name='language'>
-                        <option value="all" {% if current_language == 'all' %}selected="selected"{% endif %}>{{ _('Default language') }}</option>
-                        {% for lang_id,lang_name,country_name,english_name in language_codes | sort(attribute=1) %}
-                        <option value="{{ lang_id }}" {% if lang_id == current_language %}selected="selected"{% endif %}>
-                            {{ lang_name }}
+                    <span class="current_time_range"></span>
+                    <select class="select_time_range" name="time_range">
+                        <option value="" {{ "selected" if time_range=="" or not time_range  else ""}}>
+                            {{ _('Anytime') }}
                         </option>
-                        {% endfor %}
+                        <option value="day" {{ "selected" if time_range=="day" else ""}}>
+                            {{ _('Last day') }}
+                        </option>
+                        <option value="week" {{ "selected" if time_range=="week" else ""}}>
+                            {{ _('Last week') }}
+                        </option>
+                        <option value="month" {{ "selected" if time_range=="month" else ""}}>
+                            {{ _('Last month') }}
+                        </option>
                     </select>
                 </span>
             </div>
@@ -61,7 +67,7 @@
     <div class="pagination">
         <form class="previous_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
             <input type="hidden" name="q" value="{{ q|e }}" />
-            <input type="hidden" name="language" value="{{ current_language }}" />
+            {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}" />{% endif %}
             {% for category in selected_categories %}
             <input type="hidden" name="category_{{ category }}" value="1" />
             {% endfor %}
@@ -73,7 +79,7 @@
         </form>
         <form class="next_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
             <input type="hidden" name="q" value="{{ q|e }}" />
-            <input type="hidden" name="language" value="{{ current_language }}" />
+            {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}" />{% endif %}
             {% for category in selected_categories %}
             <input type="hidden" name="category_{{ category }}" value="1" />
             {% endfor %}
