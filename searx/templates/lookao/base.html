@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.min.css') }}?v=1" type="text/css" />
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}?v=1" />
     {% block meta %}{% endblock %}
-    {% block head %}{% endblock %}
-    {% block styles %}{% endblock %}
+    {% block head %}
+    <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ url_for('opensearch') }}"/>
+    {% endblock %}
+    {% block styles %}
+    {% endblock %}
 </head>
 <body>
 <main id="main_wrapper">
