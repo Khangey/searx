@@ -20,6 +20,7 @@ from searx.version import VERSION_STRING
 from searx.languages import language_codes
 from searx import settings
 from searx import logger
+from searx.url_utils import unquote
 
 try:
     from cStringIO import StringIO
@@ -242,12 +243,8 @@ def dict_subset(d, properties):
     return result
 
 
-def prettify_url(url, max_length=74):
-    if len(url) > max_length:
-        chunk_len = int(max_length / 2 + 1)
-        return u'{0}[...]{1}'.format(url[:chunk_len], url[-chunk_len:])
-    else:
-        return url
+def prettify_url(url):
+    return unquote(url)
 
 
 # get element in list or default value
