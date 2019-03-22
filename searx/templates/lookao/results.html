@@ -7,7 +7,7 @@
 
 <article id="content_wrapper" class="{% for category in selected_categories %}{{ category }}{% endfor %}_content_wrapper">
     <div class="search_options">
-        <form method="{{ method or 'POST' }}" action="{{ url_for('index') }}" autocomplete="off">
+        <form method="{{ method or 'POST' }}" action="{{ url_for('index') }}search" autocomplete="off">
             <input type="hidden" name="q" value="{{ q|e }}" />
             <div class="options_list">
                 {% for category in categories %}
@@ -65,7 +65,7 @@
 
     {% if paging %}
     <div class="pagination">
-        <form class="previous_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
+        <form class="previous_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}search">
             <input type="hidden" name="q" value="{{ q|e }}" />
             {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}" />{% endif %}
             {% for category in selected_categories %}
@@ -77,7 +77,7 @@
                 {{ _('previous page') }}
             </button>
         </form>
-        <form class="next_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}">
+        <form class="next_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}search">
             <input type="hidden" name="q" value="{{ q|e }}" />
             {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}" />{% endif %}
             {% for category in selected_categories %}
