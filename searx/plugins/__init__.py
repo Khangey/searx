@@ -78,11 +78,11 @@ class PluginStore():
 
 
 plugins = PluginStore()
-plugins.register(oa_doi_rewrite)
-plugins.register(https_rewrite)
-plugins.register(infinite_scroll)
+# plugins.register(oa_doi_rewrite)
+# plugins.register(https_rewrite)
+# plugins.register(infinite_scroll)
 plugins.register(open_results_on_new_tab)
-plugins.register(self_info)
-plugins.register(search_on_category_select)
+# plugins.register(self_info)
+# plugins.register(search_on_category_select)
 plugins.register(tracker_url_remover)
-plugins.register(vim_hotkeys)
+# plugins.register(vim_hotkeys)

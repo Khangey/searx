@@ -612,56 +612,56 @@ def about():
     )
 
 
-@app.route('/autocompleter', methods=['GET', 'POST'])
-def autocompleter():
-    """Return autocompleter results"""
+# @app.route('/autocompleter', methods=['GET', 'POST'])
+# def autocompleter():
+#     """Return autocompleter results"""
 
-    # set blocked engines
-    disabled_engines = request.preferences.engines.get_disabled()
+#     # set blocked engines
+#     disabled_engines = request.preferences.engines.get_disabled()
 
-    # parse query
-    if PY3:
-        raw_text_query = RawTextQuery(request.form.get('q', b''), disabled_engines)
-    else:
-        raw_text_query = RawTextQuery(request.form.get('q', u'').encode('utf-8'), disabled_engines)
-    raw_text_query.parse_query()
+#     # parse query
+#     if PY3:
+#         raw_text_query = RawTextQuery(request.form.get('q', b''), disabled_engines)
+#     else:
+#         raw_text_query = RawTextQuery(request.form.get('q', u'').encode('utf-8'), disabled_engines)
+#     raw_text_query.parse_query()
 
-    # check if search query is set
-    if not raw_text_query.getSearchQuery():
-        return '', 400
+#     # check if search query is set
+#     if not raw_text_query.getSearchQuery():
+#         return '', 400
 
-    # run autocompleter
-    completer = autocomplete_backends.get(request.preferences.get_value('autocomplete'))
+#     # run autocompleter
+#     completer = autocomplete_backends.get(request.preferences.get_value('autocomplete'))
 
-    # parse searx specific autocompleter results like !bang
-    raw_results = searx_bang(raw_text_query)
+#     # parse searx specific autocompleter results like !bang
+#     raw_results = searx_bang(raw_text_query)
 
-    # normal autocompletion results only appear if max 3 inner results returned
-    if len(raw_results) <= 3 and completer:
-        # get language from cookie
-        language = request.preferences.get_value('language')
-        if not language or language == 'all':
-            language = 'en'
-        else:
-            language = language.split('-')[0]
-        # run autocompletion
-        raw_results.extend(completer(raw_text_query.getSearchQuery(), language))
+#     # normal autocompletion results only appear if max 3 inner results returned
+#     if len(raw_results) <= 3 and completer:
+#         # get language from cookie
+#         language = request.preferences.get_value('language')
+#         if not language or language == 'all':
+#             language = 'en'
+#         else:
+#             language = language.split('-')[0]
+#         # run autocompletion
+#         raw_results.extend(completer(raw_text_query.getSearchQuery(), language))
 
-    # parse results (write :language and !engine back to result string)
-    results = []
-    for result in raw_results:
-        raw_text_query.changeSearchQuery(result)
+#     # parse results (write :language and !engine back to result string)
+#     results = []
+#     for result in raw_results:
+#         raw_text_query.changeSearchQuery(result)
 
-        # add parsed result
-        results.append(raw_text_query.getFullQuery())
+#         # add parsed result
+#         results.append(raw_text_query.getFullQuery())
 
-    # return autocompleter results
-    if request.form.get('format') == 'x-suggestions':
-        return Response(json.dumps([raw_text_query.query, results]),
-                        mimetype='application/json')
+#     # return autocompleter results
+#     if request.form.get('format') == 'x-suggestions':
+#         return Response(json.dumps([raw_text_query.query, results]),
+#                         mimetype='application/json')
 
-    return Response(json.dumps(results),
-                    mimetype='application/json')
+#     return Response(json.dumps(results),
+#                     mimetype='application/json')
 
 
 @app.route('/preferences', methods=['GET', 'POST'])
@@ -733,62 +733,62 @@ def _is_selected_language_supported(engine, preferences):
                               getattr(engine, 'language_aliases', {}), None))
 
 
-@app.route('/image_proxy', methods=['GET'])
-def image_proxy():
-    url = request.args.get('url').encode('utf-8')
+# @app.route('/image_proxy', methods=['GET'])
+# def image_proxy():
+#     url = request.args.get('url').encode('utf-8')
 
-    if not url:
-        return '', 400
+#     if not url:
+#         return '', 400
 
-    h = new_hmac(settings['server']['secret_key'], url)
+#     h = new_hmac(settings['server']['secret_key'], url)
 
-    if h != request.args.get('h'):
-        return '', 400
+#     if h != request.args.get('h'):
+#         return '', 400
 
-    headers = dict_subset(request.headers, {'If-Modified-Since', 'If-None-Match'})
-    headers['User-Agent'] = gen_useragent()
+#     headers = dict_subset(request.headers, {'If-Modified-Since', 'If-None-Match'})
+#     headers['User-Agent'] = gen_useragent()
 
-    resp = requests.get(url,
-                        stream=True,
-                        timeout=settings['outgoing']['request_timeout'],
-                        headers=headers,
-                        proxies=outgoing_proxies)
+#     resp = requests.get(url,
+#                         stream=True,
+#                         timeout=settings['outgoing']['request_timeout'],
+#                         headers=headers,
+#                         proxies=outgoing_proxies)
 
-    if resp.status_code == 304:
-        return '', resp.status_code
+#     if resp.status_code == 304:
+#         return '', resp.status_code
 
-    if resp.status_code != 200:
-        logger.debug('image-proxy: wrong response code: {0}'.format(resp.status_code))
-        if resp.status_code >= 400:
-            return '', resp.status_code
-        return '', 400
+#     if resp.status_code != 200:
+#         logger.debug('image-proxy: wrong response code: {0}'.format(resp.status_code))
+#         if resp.status_code >= 400:
+#             return '', resp.status_code
+#         return '', 400
 
-    if not resp.headers.get('content-type', '').startswith('image/'):
-        logger.debug('image-proxy: wrong content-type: {0}'.format(resp.headers.get('content-type')))
-        return '', 400
+#     if not resp.headers.get('content-type', '').startswith('image/'):
+#         logger.debug('image-proxy: wrong content-type: {0}'.format(resp.headers.get('content-type')))
+#         return '', 400
 
-    img = b''
-    chunk_counter = 0
+#     img = b''
+#     chunk_counter = 0
 
-    for chunk in resp.iter_content(1024 * 1024):
-        chunk_counter += 1
-        if chunk_counter > 5:
-            return '', 502  # Bad gateway - file is too big (>5M)
-        img += chunk
+#     for chunk in resp.iter_content(1024 * 1024):
+#         chunk_counter += 1
+#         if chunk_counter > 5:
+#             return '', 502  # Bad gateway - file is too big (>5M)
+#         img += chunk
 
-    headers = dict_subset(resp.headers, {'Content-Length', 'Length', 'Date', 'Last-Modified', 'Expires', 'Etag'})
+#     headers = dict_subset(resp.headers, {'Content-Length', 'Length', 'Date', 'Last-Modified', 'Expires', 'Etag'})
 
-    return Response(img, mimetype=resp.headers['content-type'], headers=headers)
+#     return Response(img, mimetype=resp.headers['content-type'], headers=headers)
 
 
-@app.route('/stats', methods=['GET'])
-def stats():
-    """Render engine statistics page."""
-    stats = get_engines_stats()
-    return render(
-        'stats.html',
-        stats=stats,
-    )
+# @app.route('/stats', methods=['GET'])
+# def stats():
+#     """Render engine statistics page."""
+#     stats = get_engines_stats()
+#     return render(
+#         'stats.html',
+#         stats=stats,
+#     )
 
 
 @app.route('/robots.txt', methods=['GET'])
@@ -796,8 +796,6 @@ def robots():
     return Response("""User-agent: *
 Allow: /
 Allow: /about
-Disallow: /stats
-Disallow: /preferences
 Disallow: /*?*q=*
 """, mimetype='text/plain')
 
@@ -844,36 +842,36 @@ def clear_cookies():
     return resp
 
 
-@app.route('/config')
-def config():
-    return jsonify({'categories': categories.keys(),
-                    'engines': [{'name': engine_name,
-                                 'categories': engine.categories,
-                                 'shortcut': engine.shortcut,
-                                 'enabled': not engine.disabled,
-                                 'paging': engine.paging,
-                                 'language_support': engine.language_support,
-                                 'supported_languages':
-                                 engine.supported_languages.keys()
-                                 if isinstance(engine.supported_languages, dict)
-                                 else engine.supported_languages,
-                                 'safesearch': engine.safesearch,
-                                 'time_range_support': engine.time_range_support,
-                                 'timeout': engine.timeout}
-                                for engine_name, engine in engines.items()],
-                    'plugins': [{'name': plugin.name,
-                                 'enabled': plugin.default_on}
-                                for plugin in plugins],
-                    'instance_name': settings['general']['instance_name'],
-                    'locales': settings['locales'],
-                    'default_locale': settings['ui']['default_locale'],
-                    'autocomplete': settings['search']['autocomplete'],
-                    'safe_search': settings['search']['safe_search'],
-                    'default_theme': settings['ui']['default_theme'],
-                    'version': VERSION_STRING,
-                    'doi_resolvers': [r for r in settings['doi_resolvers']],
-                    'default_doi_resolver': settings['default_doi_resolver'],
-                    })
+# @app.route('/config')
+# def config():
+#     return jsonify({'categories': categories.keys(),
+#                     'engines': [{'name': engine_name,
+#                                  'categories': engine.categories,
+#                                  'shortcut': engine.shortcut,
+#                                  'enabled': not engine.disabled,
+#                                  'paging': engine.paging,
+#                                  'language_support': engine.language_support,
+#                                  'supported_languages':
+#                                  engine.supported_languages.keys()
+#                                  if isinstance(engine.supported_languages, dict)
+#                                  else engine.supported_languages,
+#                                  'safesearch': engine.safesearch,
+#                                  'time_range_support': engine.time_range_support,
+#                                  'timeout': engine.timeout}
+#                                 for engine_name, engine in engines.items()],
+#                     'plugins': [{'name': plugin.name,
+#                                  'enabled': plugin.default_on}
+#                                 for plugin in plugins],
+#                     'instance_name': settings['general']['instance_name'],
+#                     'locales': settings['locales'],
+#                     'default_locale': settings['ui']['default_locale'],
+#                     'autocomplete': settings['search']['autocomplete'],
+#                     'safe_search': settings['search']['safe_search'],
+#                     'default_theme': settings['ui']['default_theme'],
+#                     'version': VERSION_STRING,
+#                     'doi_resolvers': [r for r in settings['doi_resolvers']],
+#                     'default_doi_resolver': settings['default_doi_resolver'],
+#                     })
 
 
 @app.errorhandler(404)
