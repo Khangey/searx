@@ -9,8 +9,6 @@
  @results     HTML (using search portal)
  @stable      no (HTML can change)
  @parse       url, title, content
-
- @todo        publishedDate
 """
 
 from lxml.html import fromstring
