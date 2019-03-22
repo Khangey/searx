@@ -76,7 +76,7 @@ def response(resp):
         link = result.xpath('.//h2/a')[0]
         url = link.attrib.get('href')
         title = extract_text(link)
-        content = extract_text(result.xpath('.//div[@class="b_caption"]/p[1]'))
+        content = extract_text(result.xpath('.//div[@class="b_caption"]//p[1]'))
 
         # append result
         results.append({'url': url,
