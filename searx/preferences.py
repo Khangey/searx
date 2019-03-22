@@ -255,17 +255,17 @@ class Preferences(object):
                                                                   '1': True,
                                                                   'True': True,
                                                                   'False': False}),
-                                   'method': EnumStringSetting('POST', choices=('GET', 'POST')),
+                                   'method': EnumStringSetting('GET', choices=('GET', 'POST')),
                                    'safesearch': MapSetting(settings['search']['safe_search'], map={'0': 0,
                                                                                                     '1': 1,
                                                                                                     '2': 2}),
                                    'theme': EnumStringSetting(settings['ui']['default_theme'], choices=themes),
-                                   'results_on_new_tab': MapSetting(False, map={'0': False,
+                                   'results_on_new_tab': MapSetting(True, map={'0': False,
                                                                                 '1': True,
                                                                                 'False': False,
                                                                                 'True': True}),
                                    'doi_resolver': MultipleChoiceSetting(['oadoi.org'], choices=DOI_RESOLVERS),
-                                   'oscar-style': EnumStringSetting(
+                                   'lookao-style': EnumStringSetting(
                                        settings['ui'].get('theme_args', {}).get('oscar_style', 'logicodev'),
                                        choices=['', 'logicodev', 'logicodev-dark', 'pointhi']),
                                    }
