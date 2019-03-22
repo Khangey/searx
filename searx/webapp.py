@@ -604,12 +604,12 @@ def index():
     )
 
 
-@app.route('/about', methods=['GET'])
-def about():
-    """Render about page"""
-    return render(
-        'about.html',
-    )
+# @app.route('/about', methods=['GET'])
+# def about():
+#     """Render about page"""
+#     return render(
+#         'about.html',
+#     )
 
 
 # @app.route('/autocompleter', methods=['GET', 'POST'])
@@ -781,14 +781,14 @@ def _is_selected_language_supported(engine, preferences):
 #     return Response(img, mimetype=resp.headers['content-type'], headers=headers)
 
 
-# @app.route('/stats', methods=['GET'])
-# def stats():
-#     """Render engine statistics page."""
-#     stats = get_engines_stats()
-#     return render(
-#         'stats.html',
-#         stats=stats,
-#     )
+@app.route('/statistics', methods=['GET'])
+def stats():
+    """Render engine statistics page."""
+    stats = get_engines_stats()
+    return render(
+        'stats.html',
+        stats=stats,
+    )
 
 
 @app.route('/robots.txt', methods=['GET'])
