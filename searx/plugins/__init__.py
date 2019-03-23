@@ -22,8 +22,7 @@ if version_info[0] == 3:
 
 logger = logger.getChild('plugins')
 
-from searx.plugins import (open_results_on_new_tab,
-                           tracker_url_remover)
+from searx.plugins import (tracker_url_remover)
 
 required_attrs = (('name', (str, unicode)),
                   ('description', (str, unicode)),
@@ -72,5 +71,4 @@ class PluginStore():
 
 
 plugins = PluginStore()
-plugins.register(open_results_on_new_tab)
 plugins.register(tracker_url_remover)
