@@ -20,7 +20,8 @@ from searx.version import VERSION_STRING
 from searx.languages import language_codes
 from searx import settings
 from searx import logger
-from searx.url_utils import unquote
+
+from urllib.parse import unquote_to_bytes
 
 try:
     from cStringIO import StringIO
@@ -244,7 +245,14 @@ def dict_subset(d, properties):
 
 
 def prettify_url(url):
-    return unquote(url)
+    _list = unquote_to_bytes(url).split(b'\n')
+    _url = []
+    for line in _list:
+        try :
+            _url.append(line.decode('utf-8'))
+        except UnicodeDecodeError:
+            _url.append(line.decode('gbk'))
+    return "\n".join(_url)
 
 
 # get element in list or default value
