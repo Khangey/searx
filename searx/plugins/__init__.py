@@ -22,14 +22,8 @@ if version_info[0] == 3:
 
 logger = logger.getChild('plugins')
 
-from searx.plugins import (oa_doi_rewrite,
-                           https_rewrite,
-                           infinite_scroll,
-                           open_results_on_new_tab,
-                           self_info,
-                           search_on_category_select,
-                           tracker_url_remover,
-                           vim_hotkeys)
+from searx.plugins import (open_results_on_new_tab,
+                           tracker_url_remover)
 
 required_attrs = (('name', (str, unicode)),
                   ('description', (str, unicode)),
@@ -78,11 +72,5 @@ class PluginStore():
 
 
 plugins = PluginStore()
-# plugins.register(oa_doi_rewrite)
-# plugins.register(https_rewrite)
-# plugins.register(infinite_scroll)
 plugins.register(open_results_on_new_tab)
-# plugins.register(self_info)
-# plugins.register(search_on_category_select)
 plugins.register(tracker_url_remover)
-# plugins.register(vim_hotkeys)
