@@ -35,8 +35,6 @@ time_range_dict = {'day': 'ex1:"ez1"',
 def request(query, params):
     offset = (params['pageno'] - 1) * 10 + 1
 
-    query = query.decode('utf-8').encode('utf-8')
-
     search_path = search_string.format(
         query=urlencode({'q': query}),
         offset=offset)
