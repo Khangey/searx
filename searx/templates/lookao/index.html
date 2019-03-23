@@ -1,4 +1,6 @@
 {% extends "lookao/base.html" %}
+{% block footer %}{% include 'lookao/footer.html' %}{% endblock %}
+
 {% block content %}
 <header id="header_wrapper">
     <div class="header_aside">
@@ -10,9 +12,7 @@
     </div>
 </header>
 <section class="hero_search">
-    <a class="hero_logo_link" href="{{ url_for('index') }}">
-        <div class="hero_logo"></div>
-    </a>
+    <div class="hero_logo"></div>
 
     <form class="search_form" method="{{ method or 'POST' }}" action="{{ url_for('index') }}search">
         <input class="search_keywords" name="q" {% if q %}value="{{ q }}"{% endif %} type="text" tabindex="1" autocomplete="off" autocapitalize="off" autocorrect="off" autofocus />

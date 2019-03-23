@@ -35,9 +35,8 @@
             <div class="modular_content">
                 {% if number_of_results != '0' %}
                 约有 {{ number_of_results }} 条结果
-                {% endif %}
-                {% if not results and not answers %}
-                <div class="no_results">
+                {% elif not results and not answers %}
+                <div class="modular_message">
                     没找到相关结果：{{ q|e }}
                 </div>
                 {% endif %}
