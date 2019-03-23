@@ -19,7 +19,7 @@ from searx.url_utils import urlencode
 categories = ['videos']
 paging = True
 time_range_support = True
-number_of_results = 10
+number_of_results = 35
 language_support = False
 
 search_url = 'https://www.bing.com/videos/asyncv2?{query}&async=content&'\
