@@ -15,7 +15,6 @@ LANGUAGE_CODES = [l[0] for l in languages]
 LANGUAGE_CODES.append('all')
 DISABLED = 0
 ENABLED = 1
-DOI_RESOLVERS = list(settings['doi_resolvers'])
 
 
 class MissingArgumentException(Exception):
@@ -264,7 +263,6 @@ class Preferences(object):
                                                                                 '1': True,
                                                                                 'False': False,
                                                                                 'True': True}),
-                                   'doi_resolver': MultipleChoiceSetting(['oadoi.org'], choices=DOI_RESOLVERS),
                                    'lookao-style': EnumStringSetting(
                                        settings['ui'].get('theme_args', {}).get('oscar_style', 'logicodev'),
                                        choices=['', 'logicodev', 'logicodev-dark', 'pointhi']),
