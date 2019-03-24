@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  Lookao\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-23 19:57+0800\n"
+"POT-Creation-Date: 2019-03-25 00:18+0800\n"
 "PO-Revision-Date: 2018-12-10 08:32+0000\n"
 "Last-Translator: Jsthon Wong\n"
 "Language: zh_CN\n"
@@ -132,10 +132,6 @@ msgstr "移除跟踪链接"
 msgid "Remove trackers arguments from the returned URL"
 msgstr "从返回的链接中移除跟踪参数"
 
-#: searx/templates/lookao/404.html:5
-msgid "该页面不存在"
-msgstr ""
-
 #: searx/templates/lookao/footer.html:6
 msgid "隐私"
 msgstr ""
@@ -150,6 +146,7 @@ msgstr ""
 
 #: searx/templates/lookao/footer.html:9 searx/templates/lookao/header.html:13
 #: searx/templates/lookao/index.html:11
+#: searx/templates/lookao/preferences.html:8
 msgid "设置"
 msgstr ""
 
@@ -157,8 +154,68 @@ msgstr ""
 msgid "千人一面，只如初见。"
 msgstr ""
 
-#: searx/templates/lookao/index.html:31
-msgid "本来无一物，何处染尘埃？"
+#: searx/templates/lookao/index.html:28
+msgid "本来无一物，何处惹尘埃。"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:12
+msgid "主题风格"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:14
+msgid "自定义站点的主题风格"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:23
+msgid "界面语言"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:25
+msgid "更改主界面的显示语言"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:34
+msgid "搜索语言"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:36
+msgid "指定搜索结果内容的语言"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:39
+msgid "所有语言"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:46
+msgid "新的窗口"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:48
+msgid "在新窗口或标签页打开结果链接"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:51
+msgid "开启"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:52
+msgid "关闭"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:56
+msgid "请求方法"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:58
+msgid "更改 HTTP 请求方法，GET 使用体验更佳，POST 更安全。"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:67
+msgid "保存"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:68
+msgid "清空所有设置"
 msgstr ""
 
 #: searx/templates/lookao/results.html:18
@@ -200,4 +257,3 @@ msgstr ""
 #: searx/templates/lookao/results.html:87
 msgid "下一页"
 msgstr ""
-
