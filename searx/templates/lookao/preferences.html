@@ -1,0 +1,72 @@
+{% extends "lookao/base.html" %}
+{% block footer %}{% include 'lookao/footer.html' %}{% endblock %}
+
+{% block content %}
+{% include 'lookao/header.html' %}
+
+<article id="content_wrapper" class="preferences_page">
+    <h2 class="legend_title">{{ _('设置') }}</h2>
+    <form method="post" action="{{ url_for('preferences') }}">
+    <fieldset>
+        <label class="preferences_select_label">
+            {{ _('主题风格') }}
+            <span class="sub_label">
+                {{ _('自定义站点的主题风格') }}
+            </span>
+            <select class="preferences_select_element" name='lookao-style'>
+                <option value="logicodev" >Logicodev</option>
+                <option value="pointhi" {% if preferences.get_value('oscar-style') == 'pointhi' %}selected="selected"{% endif %}>Pointhi</option>
+                <option value="logicodev-dark" {% if preferences.get_value('oscar-style') == 'logicodev-dark' %}selected="selected"{% endif %}>Logicodev dark</option>
+            </select>
+        </label>
+        <label class="preferences_select_label">
+            {{ _('界面语言') }}
+            <span class="sub_label">
+                {{ _('更改主界面的显示语言') }}
+            </span>
+            <select class="preferences_select_element" name='locale'>
+                {% for locale_id,locale_name in locales.items() | sort %}
+                <option value="{{ locale_id }}" {% if locale_id == current_locale %}selected="selected"{% endif %}>{{ locale_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <label class="preferences_select_label">
+            {{ _('搜索语言') }}
+            <span class="sub_label">
+                {{ _('指定搜索结果内容的语言') }}
+            </span>
+            <select class="preferences_select_element" name='language'>
+                <option value="all" {% if current_language == 'all' %}selected="selected"{% endif %}>{{ _('所有语言') }}</option>
+                {% for lang_id,lang_name,country_name,english_name in language_codes | sort(attribute=1) %}
+                <option value="{{ lang_id }}" {% if lang_id == current_language %}selected="selected"{% endif %}>{{ lang_name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        <label class="preferences_select_label">
+            {{ _('新的窗口') }}
+            <span class="sub_label">
+                {{ _('在新窗口或标签页打开结果链接') }}
+            </span>
+            <select class="preferences_select_element" name='results_on_new_tab'>
+                <option value="1" {% if results_on_new_tab %}selected="selected"{% endif %}>{{ _('开启') }}</option>
+                <option value="0" {% if not results_on_new_tab %}selected="selected"{% endif %}>{{ _('关闭')}}</option>
+            </select>
+        </label>
+        <label class="preferences_select_label">
+            {{ _('请求方法') }}
+            <span class="sub_label">
+                {{ _('更改 HTTP 请求方法，GET 使用体验更佳，POST 更安全。') }}
+            </span>
+            <select class="preferences_select_element" name='method'>
+                <option value="POST" {% if method == 'POST' %}selected="selected"{% endif %}>POST</option>
+                <option value="GET" {% if method == 'GET' %}selected="selected"{% endif %}>GET</option>
+            </select>
+        </label>
+    </fieldset>
+    <div class="preferences_action">
+        <input type="submit" value="{{ _('保存') }}" />
+        <a class="preferences_reset" href="{{ url_for('clear_cookies') }}">{{ _('清空所有设置') }}</a>
+    </div>
+    </form>
+</article>
+{% endblock %}
