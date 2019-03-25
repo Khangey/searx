@@ -54,12 +54,13 @@ def response(resp):
     dom = html.fromstring(resp.text)
 
     for result in dom.xpath('//div[@class="dg_u"]'):
-        url = result.xpath('./div[@class="mc_vtvc"]/a/@href')[0]
+        link = result.xpath('./div[@class="mc_vtvc"]/a')[0]
+        url = link.attrib.get('href')
         if url[0] == '/':
             url = 'https://bing.com' + url
-        title = extract_text(result.xpath('./div/a/div/div[@class="mc_vtvc_title"]/@title'))
-        content = extract_text(result.xpath('./div/a/div/div/div/div/text()'))
-        thumbnail = result.xpath('./div/a/div/div/img/@src')[0]
+        title = extract_text(result.xpath('.//div[@class="mc_vtvc_title"]/@title')[0])
+        content = link.attrib.get('aria-label').replace(title, '')
+        thumbnail = result.xpath('.//img[1]/@src')[0]
 
         results.append({'url': url,
                         'title': title,
