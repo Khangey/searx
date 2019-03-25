@@ -15,6 +15,7 @@ from lxml import html
 from json import loads
 import re
 from searx.url_utils import urlencode
+from searx.engines.xpath import extract_text
 
 # engine dependent config
 categories = ['images']
@@ -60,8 +61,8 @@ def response(resp):
     for result in dom.xpath('//div[@id="mmComponent_images_1"]/ul/li/div/div[@class="imgpt"]'):
         link = result.xpath('./a')[0]
 
-        # TODO find actual title
-        title = link.xpath('.//img/@alt')[0]
+        # parse title
+        title = extract_text(result.xpath('./div[@class="img_info hon"]/span')[0])
 
         # parse json-data (it is required to add a space, to make it parsable)
         json_data = loads(_quote_keys_regex.sub(r'\1"\2": \3', link.attrib.get('m')))
