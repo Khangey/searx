@@ -829,7 +829,7 @@ def favicon():
                                             'themes',
                                             get_current_theme_name(),
                                             'img'),
-                               'favicon.png',
+                               'icon_64.png',
                                mimetype='image/vnd.microsoft.icon')
 
 
