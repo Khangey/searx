@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <title>{% block title %}{% endblock %}{{ instance_name }}</title>
-    <meta name="description" content="A privacy search engine that empowers you to seamlessly take control of your personal information online, without any tradeoffs. The search engine that doesn't track you." />
-    <meta name="keywords" content="lookao, search, search engine, privacy search, meta search, 搜索, 搜索引擎, 隐私搜索, 元搜索" />
+    <meta name="description" content="A privacy search engine that empowers you to seamlessly take control of your personal information online, without any tradeoffs. The search engine that doesn't track you.">
+    <meta name="keywords" content="lookao, search, search engine, privacy search, meta search, 搜索, 搜索引擎, 隐私搜索, 元搜索">
     <meta name="referrer" content="no-referrer">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.min.css') }}" type="text/css" />
-    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/icon_64.png') }}" />
-	<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon_512.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.min.css') }}" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/icon_64.png') }}">
+	<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon_512.png') }}">
     {% block meta %}{% endblock %}
     {% block head %}
     <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ url_for('opensearch') }}"/>

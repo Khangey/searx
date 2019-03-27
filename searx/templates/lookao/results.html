@@ -8,7 +8,7 @@
 <article id="content_wrapper" class="{% for category in selected_categories %}{{ category }}{% endfor %}_content_wrapper">
     <div class="search_options">
         <form method="{{ method or 'POST' }}" action="{{ url_for('index') }}search" autocomplete="off">
-            <input type="hidden" name="q" value="{{ q|e }}" />
+            <input type="hidden" name="q" value="{{ q|e }}">
             <div class="options_list">
                 {% for category in categories %}
                 <button name="category_{{ category }}" value="1" {% if category in selected_categories %}class="category active" type="button"{% else %}class="category" type="submit"{% endif %}>{{ _(category) }}</button>
@@ -65,24 +65,24 @@
     {% if paging %}
     <div class="pagination">
         <form class="previous_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}search">
-            <input type="hidden" name="q" value="{{ q|e }}" />
-            {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}" />{% endif %}
+            <input type="hidden" name="q" value="{{ q|e }}">
+            {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}">{% endif %}
             {% for category in selected_categories %}
-            <input type="hidden" name="category_{{ category }}" value="1" />
+            <input type="hidden" name="category_{{ category }}" value="1">
             {% endfor %}
-            <input type="hidden" name="pageno" value="{{ pageno-1 }}" />
+            <input type="hidden" name="pageno" value="{{ pageno-1 }}">
             <button {% if pageno == 1 %}class="turn_page disable" type="button"{% else %}class="turn_page" type="submit"{% endif %}>
                 <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3596"><path d="M295.237833 463.886654l450.87471 437.617385-47.180772 48.610082-450.87471-437.617385 47.180772-48.610082ZM698.740451 66.210341l47.648176 48.149451-419.911362 415.539746-47.648176-48.149451 419.911362-415.539746Z" p-id="3597"></path></svg>
                 {{ _('上一页') }}
             </button>
         </form>
         <form class="next_page" method="{{ method or 'POST' }}" action="{{ url_for('index') }}search">
-            <input type="hidden" name="q" value="{{ q|e }}" />
-            {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}" />{% endif %}
+            <input type="hidden" name="q" value="{{ q|e }}">
+            {% if time_range %}<input type="hidden" name="time_range" value="{{ time_range }}">{% endif %}
             {% for category in selected_categories %}
-            <input type="hidden" name="category_{{ category }}" value="1" />
+            <input type="hidden" name="category_{{ category }}" value="1">
             {% endfor %}
-            <input type="hidden" name="pageno" value="{{ pageno+1 }}" />
+            <input type="hidden" name="pageno" value="{{ pageno+1 }}">
             <button class="turn_page" type="submit">
                 {{ _('下一页') }}
                 <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5558"><path d="M672 512l-384 384c-12.8 12.8-12.8 32 0 44.8 12.8 12.8 32 12.8 44.8 0l403.2-403.2c6.4-6.4 12.8-19.2 12.8-25.6 0-6.4 0-19.2-6.4-25.6L332.8 83.2C320 70.4 300.8 70.4 288 83.2S275.2 115.2 288 128L672 512z" p-id="5559"></path></svg>
