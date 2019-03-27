@@ -1,7 +1,7 @@
 <header id="header_wrapper">
     <div class="header_content">
         <div class="header_logo">
-            <a href="{{ url_for('index') }}"></a>
+            <a class="header_logo_link" href="{{ url_for('index') }}"></a>
         </div>
         {% block search %}{% include 'lookao/search.html' %}{% endblock %}
     </div>
