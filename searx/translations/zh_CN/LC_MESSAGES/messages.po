@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  Lookao\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-25 00:18+0800\n"
+"POT-Creation-Date: 2019-03-29 03:08+0800\n"
 "PO-Revision-Date: 2018-12-10 08:32+0000\n"
 "Last-Translator: Jsthon Wong\n"
 "Language: zh_CN\n"
@@ -154,7 +154,7 @@ msgstr ""
 msgid "千人一面，只如初见。"
 msgstr ""
 
-#: searx/templates/lookao/index.html:28
+#: searx/templates/lookao/index.html:30
 msgid "本来无一物，何处惹尘埃。"
 msgstr ""
 
@@ -183,6 +183,8 @@ msgid "指定搜索结果内容的语言"
 msgstr ""
 
 #: searx/templates/lookao/preferences.html:39
+#: searx/templates/lookao/results.html:43
+#: searx/templates/lookao/results.html:46
 msgid "所有语言"
 msgstr ""
 
@@ -219,41 +221,43 @@ msgid "清空所有设置"
 msgstr ""
 
 #: searx/templates/lookao/results.html:18
-msgid "时间"
-msgstr ""
-
-#: searx/templates/lookao/results.html:21
-msgid "不限时"
+msgid "筛选"
 msgstr ""
 
 #: searx/templates/lookao/results.html:24
-msgid "一天内"
-msgstr ""
-
-#: searx/templates/lookao/results.html:27
-msgid "一周内"
-msgstr ""
-
-#: searx/templates/lookao/results.html:30
-msgid "一月内"
-msgstr ""
-
-#: searx/templates/lookao/results.html:37
 msgid "约有"
 msgstr ""
 
-#: searx/templates/lookao/results.html:37
+#: searx/templates/lookao/results.html:24
 msgid "条结果"
 msgstr ""
 
-#: searx/templates/lookao/results.html:40
+#: searx/templates/lookao/results.html:27
 msgid "没找到相关结果："
 msgstr ""
 
-#: searx/templates/lookao/results.html:76
+#: searx/templates/lookao/results.html:33
+#: searx/templates/lookao/results.html:36
+msgid "不限时间"
+msgstr ""
+
+#: searx/templates/lookao/results.html:37
+msgid "一天内"
+msgstr ""
+
+#: searx/templates/lookao/results.html:38
+msgid "一周内"
+msgstr ""
+
+#: searx/templates/lookao/results.html:39
+msgid "一月内"
+msgstr ""
+
+#: searx/templates/lookao/results.html:86
 msgid "上一页"
 msgstr ""
 
-#: searx/templates/lookao/results.html:87
+#: searx/templates/lookao/results.html:97
 msgid "下一页"
 msgstr ""
+

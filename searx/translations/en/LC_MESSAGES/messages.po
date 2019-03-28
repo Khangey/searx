@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-25 00:18+0800\n"
+"POT-Creation-Date: 2019-03-29 03:08+0800\n"
 "PO-Revision-Date: 2014-01-30 15:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -148,9 +148,9 @@ msgstr "Preferences"
 msgid "千人一面，只如初见。"
 msgstr "Privacy, undifferentiated."
 
-#: searx/templates/lookao/index.html:28
+#: searx/templates/lookao/index.html:30
 msgid "本来无一物，何处惹尘埃。"
-msgstr "Simple is Everything."
+msgstr "Nothing is secure, but nothing is."
 
 #: searx/templates/lookao/preferences.html:12
 msgid "主题风格"
@@ -177,6 +177,8 @@ msgid "指定搜索结果内容的语言"
 msgstr "Prefer pages written in this language"
 
 #: searx/templates/lookao/preferences.html:39
+#: searx/templates/lookao/results.html:43
+#: searx/templates/lookao/results.html:46
 msgid "所有语言"
 msgstr "All languages"
 
@@ -213,42 +215,43 @@ msgid "清空所有设置"
 msgstr "Reset All"
 
 #: searx/templates/lookao/results.html:18
-msgid "时间"
-msgstr "Time"
-
-#: searx/templates/lookao/results.html:21
-msgid "不限时"
-msgstr "Anytime"
+msgid "筛选"
+msgstr "Filter"
 
 #: searx/templates/lookao/results.html:24
-msgid "一天内"
-msgstr "Last day"
-
-#: searx/templates/lookao/results.html:27
-msgid "一周内"
-msgstr "Last week"
-
-#: searx/templates/lookao/results.html:30
-msgid "一月内"
-msgstr "Last month"
-
-#: searx/templates/lookao/results.html:37
 msgid "约有"
 msgstr "About"
 
-#: searx/templates/lookao/results.html:37
+#: searx/templates/lookao/results.html:24
 msgid "条结果"
 msgstr "results"
 
-#: searx/templates/lookao/results.html:40
+#: searx/templates/lookao/results.html:27
 msgid "没找到相关结果："
 msgstr "There are no results for"
 
-#: searx/templates/lookao/results.html:76
+#: searx/templates/lookao/results.html:33
+#: searx/templates/lookao/results.html:36
+msgid "不限时间"
+msgstr "Anytime"
+
+#: searx/templates/lookao/results.html:37
+msgid "一天内"
+msgstr "Last day"
+
+#: searx/templates/lookao/results.html:38
+msgid "一周内"
+msgstr "Last week"
+
+#: searx/templates/lookao/results.html:39
+msgid "一月内"
+msgstr "Last month"
+
+#: searx/templates/lookao/results.html:86
 msgid "上一页"
 msgstr "Previous page"
 
-#: searx/templates/lookao/results.html:87
+#: searx/templates/lookao/results.html:97
 msgid "下一页"
 msgstr "Next page"
 
@@ -840,3 +843,4 @@ msgstr "Next page"
 
 #~ msgid "Compute {functions} of the arguments"
 #~ msgstr ""
+
