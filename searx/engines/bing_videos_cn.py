@@ -19,8 +19,8 @@ from searx.url_utils import urlencode
 categories = ['videos']
 paging = True
 time_range_support = True
+language_support = True
 number_of_results = 35
-language_support = False
 
 search_url = 'https://www.bing.com/videos/asyncv2?{query}&async=content&'\
              'first={offset}&count={number_of_results}&CW=1366&CH=25&FORM=R5VR5'
@@ -34,6 +34,9 @@ time_range_dict = {'day': '1440',
 # do search-request
 def request(query, params):
     offset = (params['pageno'] - 1) * 10 + 1
+
+    if params['language'] != 'all' and params['language'] != 'zh':
+        query = u'language:{} {}'.format(params['language'], query.decode('utf-8')).encode('utf-8')
 
     # query and paging
     params['url'] = search_url.format(query=urlencode({'q': query}),

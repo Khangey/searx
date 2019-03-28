@@ -20,7 +20,7 @@ from searx.engines.xpath import extract_text
 # engine dependent config
 categories = ['images']
 paging = True
-language_support = False
+language_support = True
 time_range_support = True
 
 # search-url
@@ -39,6 +39,9 @@ _quote_keys_regex = re.compile('({|,)([a-z][a-z0-9]*):(")', re.I | re.U)
 # do search-request
 def request(query, params):
     offset = (params['pageno'] - 1) * 35 + 1
+
+    if params['language'] != 'all' and params['language'] != 'zh':
+        query = u'language:{} {}'.format(params['language'], query.decode('utf-8')).encode('utf-8')
 
     search_path = search_string.format(
         query=urlencode({'q': query}),

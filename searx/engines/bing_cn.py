@@ -19,7 +19,7 @@ from searx.utils import gen_useragent
 # engine dependent config
 categories = ['general']
 paging = True
-language_support = False
+language_support = True
 time_range_support = True
 
 # search-url
@@ -34,6 +34,9 @@ time_range_dict = {'day': 'ex1:"ez1"',
 # do search-request
 def request(query, params):
     offset = (params['pageno'] - 1) * 10 + 1
+
+    if params['language'] != 'all' and params['language'] != 'zh':
+        query = u'language:{} {}'.format(params['language'], query.decode('utf-8')).encode('utf-8')
 
     search_path = search_string.format(
         query=urlencode({'q': query}),
@@ -72,7 +75,10 @@ def response(resp):
         link = result.xpath('.//h2/a')[0]
         url = link.attrib.get('href')
         title = extract_text(link)
-        content = extract_text(result.xpath('.//div[@class="b_caption"]//p')[0])
+        try:
+            content = extract_text(result.xpath('.//div[@class="b_caption"]//p')[0])
+        except:
+            pass
 
         # append result
         results.append({'url': url,
