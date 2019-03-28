@@ -263,7 +263,7 @@ class Preferences(object):
                                                                                 '1': True,
                                                                                 'False': False,
                                                                                 'True': True}),
-                                   'lookao-style': EnumStringSetting(
+                                   'style': EnumStringSetting(
                                        settings['ui'].get('theme_args', {}).get('oscar_style', 'logicodev'),
                                        choices=['', 'logicodev', 'logicodev-dark', 'pointhi']),
                                    }

@@ -13,10 +13,10 @@
             <span class="sub_label">
                 {{ _('自定义站点的主题风格') }}
             </span>
-            <select class="preferences_select_element" name='lookao-style'>
+            <select class="preferences_select_element" name='style'>
                 <option value="logicodev" >Logicodev</option>
-                <option value="pointhi" {% if preferences.get_value('oscar-style') == 'pointhi' %}selected="selected"{% endif %}>Pointhi</option>
-                <option value="logicodev-dark" {% if preferences.get_value('oscar-style') == 'logicodev-dark' %}selected="selected"{% endif %}>Logicodev dark</option>
+                <option value="pointhi" {% if preferences.get_value('style') == 'pointhi' %}selected="selected"{% endif %}>Pointhi</option>
+                <option value="logicodev-dark" {% if preferences.get_value('style') == 'logicodev-dark' %}selected="selected"{% endif %}>Logicodev dark</option>
             </select>
         </label>
         <label class="preferences_select_label">
