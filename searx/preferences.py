@@ -337,10 +337,12 @@ class Preferences(object):
             return self.unknown_params[user_setting_name]
 
     def save(self, resp):
+        save_cookies_name = ['language', 'locale', 'method', 'results_on_new_tab', 'style']
         for user_setting_name, user_setting in self.key_value_settings.items():
-            user_setting.save(user_setting_name, resp)
-        self.engines.save(resp)
-        self.plugins.save(resp)
+            if user_setting_name in save_cookies_name:
+                user_setting.save(user_setting_name, resp)
+        # self.engines.save(resp)
+        # self.plugins.save(resp)
         for k, v in self.unknown_params.items():
             resp.set_cookie(k, v, max_age=COOKIE_MAX_AGE)
         return resp
