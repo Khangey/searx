@@ -11,35 +11,45 @@
             <input type="hidden" name="q" value="{{ q|e }}">
             <div class="options_list">
                 {% for category in categories %}
-                <button name="category_{{ category }}" value="1" {% if category in selected_categories %}class="category active" type="button"{% else %}class="category" type="submit"{% endif %}>{{ _(category) }}</button>
+                <button name="category_{{ category }}" value="1" {% if category in selected_categories %}class="option_category active" type="button"{% else %}class="option_category" type="submit"{% endif %}>{{ _(category) }}</button>
                 {% endfor %}
-                <span class="filter">
+                <span class="option_filter">
                     <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3266"><path d="M128 252.288C128 230.784 146.432 213.333333 169.130667 213.333333h685.738666c22.698667 0 41.130667 17.450667 41.130667 38.954667s-18.432 38.954667-41.130667 38.954667H169.130667c-22.698667 0-41.130667-17.450667-41.130667-38.954667zM292.565333 512c0-21.504 18.432-38.954667 41.130667-38.954667h356.608c22.698667 0 41.130667 17.450667 41.130667 38.954667s-18.432 38.954667-41.130667 38.954667H333.653333c-22.698667 0-41.130667-17.450667-41.130666-38.954667z m150.869334 220.757333c-22.741333 0-41.130667 17.450667-41.130667 38.954667s18.389333 38.954667 41.130667 38.954667h137.130666c22.741333 0 41.130667-17.450667 41.130667-38.954667s-18.389333-38.954667-41.130667-38.954667h-137.130666z" p-id="3267"></path></svg>
-                    <span class="current_time_range">{{ _('时间') }}</span>
-                    <select class="select_time_range" name="time_range">
-                        <option value="" {{ "selected" if time_range=="" or not time_range  else ""}}>
-                            {{ _('不限时间') }}
-                        </option>
-                        <option value="day" {{ "selected" if time_range=="day" else ""}}>
-                            {{ _('一天内') }}
-                        </option>
-                        <option value="week" {{ "selected" if time_range=="week" else ""}}>
-                            {{ _('一周内') }}
-                        </option>
-                        <option value="month" {{ "selected" if time_range=="month" else ""}}>
-                            {{ _('一月内') }}
-                        </option>
-                    </select>
+                    {{ _('筛选') }}
                 </span>
             </div>
             <div class="modular_content">
-                {% if number_of_results != '0' %}
-                {{ _('约有') }} {{ number_of_results }} {{ _('条结果') }}
-                {% elif not results and not answers %}
-                <div class="modular_message">
-                    {{ _('没找到相关结果：') }}{{ q|e }}
+                <div class="modular_results_count">
+                    {% if number_of_results != '0' %}
+                    {{ _('约有') }} {{ number_of_results }} {{ _('条结果') }}
+                    {% elif not results and not answers %}
+                    <span class="modular_results_count_none">
+                        {{ _('没找到相关结果：') }}{{ q|e }}
+                    </span>
+                    {% endif %}
                 </div>
-                {% endif %}
+                <div class="modular_filter">
+                    <div class="filter_option">
+                        <span class="current_time_range">{{ _('不限时间') }}</span>
+                        <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10843"><path d="M512 647.540364L235.008 372.363636 186.181818 420.957091 512 744.727273l325.818182-323.770182L788.992 372.363636z" p-id="10844"></path></svg>
+                        <select class="filter_select select_time_range" name="time_range">
+                            <option value="" {{ "selected" if time_range=="" or not time_range  else ""}}>{{ _('不限时间') }}</option>
+                            <option value="day" {{ "selected" if time_range=="day" else ""}}>{{ _('一天内') }}</option>
+                            <option value="week" {{ "selected" if time_range=="week" else ""}}>{{ _('一周内') }}</option>
+                            <option value="month" {{ "selected" if time_range=="month" else ""}}>{{ _('一月内') }}</option>
+                        </select>
+                    </div>
+                    <div class="filter_option">
+                        <span class="current_language">{{ _('所有语言') }}</span>
+                        <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10843"><path d="M512 647.540364L235.008 372.363636 186.181818 420.957091 512 744.727273l325.818182-323.770182L788.992 372.363636z" p-id="10844"></path></svg>
+                        <select class="filter_select select_language" name='language'>
+                            <option value="all" {% if current_language == 'all' %}selected="selected"{% endif %}>{{ _('所有语言') }}</option>
+                            {% for lang_id,lang_name,country_name,english_name in language_codes | sort(attribute=1) %}
+                            <option value="{{ lang_id }}" {% if lang_id == current_language %}selected="selected"{% endif %}>{{ lang_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
