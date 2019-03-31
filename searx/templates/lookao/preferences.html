@@ -14,9 +14,9 @@
                 {{ _('自定义站点的主题风格') }}
             </span>
             <select class="preferences_select_element" name='style'>
-                <option value="logicodev" >Logicodev</option>
-                <option value="pointhi" {% if preferences.get_value('style') == 'pointhi' %}selected="selected"{% endif %}>Pointhi</option>
-                <option value="logicodev-dark" {% if preferences.get_value('style') == 'logicodev-dark' %}selected="selected"{% endif %}>Logicodev dark</option>
+                <option value="moon" >{{ _('月灰') }}</option>
+                <option value="coal" {% if preferences.get_value('style') == 'coal' %}selected="selected"{% endif %}>{{ _('炭黑') }}</option>
+                <option value="peach" {% if preferences.get_value('style') == 'peach' %}selected="selected"{% endif %}>{{ _('桃夭') }}</option>
             </select>
         </label>
         <label class="preferences_select_label">

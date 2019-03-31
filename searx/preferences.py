@@ -268,8 +268,8 @@ class Preferences(object):
                                                                                 'False': False,
                                                                                 'True': True}),
                                    'style': EnumStringSetting(
-                                       settings['ui'].get('theme_args', {}).get('oscar_style', 'logicodev'),
-                                       choices=['', 'logicodev', 'logicodev-dark', 'pointhi']),
+                                       settings['ui'].get('theme_args', {}).get('style', 'moon'),
+                                       choices=['', 'moon', 'coal', 'peach']),
                                    }
 
         self.engines = EnginesSetting('engines', choices=engines)

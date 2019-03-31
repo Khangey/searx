@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  Lookao\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-31 21:02+0800\n"
+"POT-Creation-Date: 2019-04-01 01:53+0800\n"
 "PO-Revision-Date: 2018-12-10 08:32+0000\n"
 "Last-Translator: Jsthon Wong\n"
 "Language: zh_CN\n"
@@ -164,6 +164,18 @@ msgstr ""
 
 #: searx/templates/lookao/preferences.html:14
 msgid "自定义站点的主题风格"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:17
+msgid "月灰"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:18
+msgid "炭黑"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:19
+msgid "桃夭"
 msgstr ""
 
 #: searx/templates/lookao/preferences.html:23

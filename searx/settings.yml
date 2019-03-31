@@ -20,10 +20,10 @@ server:
 ui:
     static_path : "" # Custom static path - leave it blank if you didn't change
     templates_path : "" # Custom templates path - leave it blank if you didn't change
-    default_theme : oscar # ui theme
+    default_theme : lookao # ui theme
     default_locale : "" # Default interface locale - leave blank to detect from browser information or use codes from the 'locales' config section
     theme_args :
-        style : default # default style of lookao
+        style : moon # default style of lookao
 
 # searx supports result proxification using an external service: https://github.com/asciimoo/morty
 # uncomment below section if you have running morty proxy
