@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-29 03:08+0800\n"
+"POT-Creation-Date: 2019-03-31 21:02+0800\n"
 "PO-Revision-Date: 2014-01-30 15:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -70,23 +70,23 @@ msgstr ""
 msgid "science"
 msgstr ""
 
-#: searx/webapp.py:411 searx/webapp.py:678
+#: searx/webapp.py:413 searx/webapp.py:680
 msgid "Invalid settings, please edit your preferences"
 msgstr ""
 
-#: searx/webapp.py:427
+#: searx/webapp.py:429
 msgid "Invalid settings"
 msgstr ""
 
-#: searx/webapp.py:461 searx/webapp.py:507
+#: searx/webapp.py:463 searx/webapp.py:509
 msgid "search error"
 msgstr ""
 
-#: searx/webapp.py:544
+#: searx/webapp.py:546
 msgid "{minutes} minute(s) ago"
 msgstr ""
 
-#: searx/webapp.py:546
+#: searx/webapp.py:548
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr ""
 
@@ -191,26 +191,36 @@ msgid "在新窗口或标签页打开结果链接"
 msgstr "Open search result in a new window"
 
 #: searx/templates/lookao/preferences.html:51
+#: searx/templates/lookao/preferences.html:61
 msgid "开启"
 msgstr "On"
 
 #: searx/templates/lookao/preferences.html:52
+#: searx/templates/lookao/preferences.html:62
 msgid "关闭"
 msgstr "Off"
 
 #: searx/templates/lookao/preferences.html:56
+msgid "推广内容"
+msgstr "Advertisements"
+
+#: searx/templates/lookao/preferences.html:58
+msgid "尽管如此，但还是希望得到你的支持。"
+msgstr "We hope we can reckon on your support."
+
+#: searx/templates/lookao/preferences.html:66
 msgid "请求方法"
 msgstr "Method"
 
-#: searx/templates/lookao/preferences.html:58
+#: searx/templates/lookao/preferences.html:68
 msgid "更改 HTTP 请求方法，GET 使用体验更佳，POST 更安全。"
 msgstr "Change how forms are submited"
 
-#: searx/templates/lookao/preferences.html:67
+#: searx/templates/lookao/preferences.html:77
 msgid "保存"
 msgstr "Save"
 
-#: searx/templates/lookao/preferences.html:68
+#: searx/templates/lookao/preferences.html:78
 msgid "清空所有设置"
 msgstr "Reset All"
 

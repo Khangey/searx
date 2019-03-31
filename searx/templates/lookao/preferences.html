@@ -53,6 +53,16 @@
             </select>
         </label>
         <label class="preferences_select_label">
+            {{ _('推广内容') }}
+            <span class="sub_label">
+                {{ _('尽管如此，但还是希望得到你的支持。') }}
+            </span>
+            <select class="preferences_select_element" name='ads_on'>
+                <option value="1" {% if ads_on %}selected="selected"{% endif %}>{{ _('开启') }}</option>
+                <option value="0" {% if not ads_on %}selected="selected"{% endif %}>{{ _('关闭')}}</option>
+            </select>
+        </label>
+        <label class="preferences_select_label">
             {{ _('请求方法') }}
             <span class="sub_label">
                 {{ _('更改 HTTP 请求方法，GET 使用体验更佳，POST 更安全。') }}

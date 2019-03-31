@@ -263,6 +263,10 @@ class Preferences(object):
                                                                                 '1': True,
                                                                                 'False': False,
                                                                                 'True': True}),
+                                   'ads_on': MapSetting(True, map={'0': False,
+                                                                                '1': True,
+                                                                                'False': False,
+                                                                                'True': True}),
                                    'style': EnumStringSetting(
                                        settings['ui'].get('theme_args', {}).get('oscar_style', 'logicodev'),
                                        choices=['', 'logicodev', 'logicodev-dark', 'pointhi']),
@@ -337,7 +341,7 @@ class Preferences(object):
             return self.unknown_params[user_setting_name]
 
     def save(self, resp):
-        save_cookies_name = ['language', 'locale', 'method', 'results_on_new_tab', 'style']
+        save_cookies_name = ['language', 'locale', 'method', 'results_on_new_tab', 'ads_on', 'style']
         for user_setting_name, user_setting in self.key_value_settings.items():
             if user_setting_name in save_cookies_name:
                 user_setting.save(user_setting_name, resp)

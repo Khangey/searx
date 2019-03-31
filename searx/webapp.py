@@ -380,6 +380,8 @@ def render(template_name, override_theme=None, **kwargs):
     kwargs['instance_name'] = settings['general']['instance_name']
 
     kwargs['results_on_new_tab'] = request.preferences.get_value('results_on_new_tab')
+    
+    kwargs['ads_on'] = request.preferences.get_value('ads_on')
 
     kwargs['unicode'] = unicode
 
