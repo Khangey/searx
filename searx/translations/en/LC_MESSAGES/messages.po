@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-01 01:53+0800\n"
+"POT-Creation-Date: 2019-04-10 02:04+0800\n"
 "PO-Revision-Date: 2014-01-30 15:22+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: searx/webapp.py:139
 msgid "general"
-msgstr ""
+msgstr "web"
 
 #: searx/webapp.py:140
 msgid "music"
@@ -70,23 +70,23 @@ msgstr ""
 msgid "science"
 msgstr ""
 
-#: searx/webapp.py:413 searx/webapp.py:680
+#: searx/webapp.py:420 searx/webapp.py:703
 msgid "Invalid settings, please edit your preferences"
 msgstr ""
 
-#: searx/webapp.py:429
+#: searx/webapp.py:436
 msgid "Invalid settings"
 msgstr ""
 
-#: searx/webapp.py:463 searx/webapp.py:509
+#: searx/webapp.py:470 searx/webapp.py:516
 msgid "search error"
 msgstr ""
 
-#: searx/webapp.py:546
+#: searx/webapp.py:553
 msgid "{minutes} minute(s) ago"
 msgstr ""
 
-#: searx/webapp.py:548
+#: searx/webapp.py:555
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr ""
 
@@ -126,30 +126,73 @@ msgstr ""
 msgid "Remove trackers arguments from the returned URL"
 msgstr ""
 
-#: searx/templates/lookao/footer.html:6
-msgid "隐私"
-msgstr "Privacy"
+#: searx/templates/lookao/404.html:7
+msgid "这里空空如也"
+msgstr "There's nothing to see here."
 
+#: searx/templates/lookao/404.html:8
+msgid "返回首页"
+msgstr "GO BACK!"
+
+#: searx/templates/lookao/about.html:2 searx/templates/lookao/about.html:9
 #: searx/templates/lookao/footer.html:7
 msgid "关于"
 msgstr "About"
 
-#: searx/templates/lookao/footer.html:8
-msgid "支持"
-msgstr "Support"
+#: searx/templates/lookao/footer.html:6 searx/templates/lookao/privacy.html:2
+#: searx/templates/lookao/privacy.html:9
+msgid "隐私"
+msgstr "Privacy"
 
-#: searx/templates/lookao/footer.html:9 searx/templates/lookao/header.html:13
-#: searx/templates/lookao/index.html:11
+#: searx/templates/lookao/footer.html:8 searx/templates/lookao/mission.html:2
+#: searx/templates/lookao/mission.html:9
+msgid "愿景"
+msgstr "Mission"
+
+#: searx/templates/lookao/footer.html:9
+#: searx/templates/lookao/header_aside.html:6
 #: searx/templates/lookao/preferences.html:8
 msgid "设置"
 msgstr "Preferences"
 
-#: searx/templates/lookao/header.html:10 searx/templates/lookao/index.html:8
-msgid "千人一面，只如初见。"
-msgstr "Privacy, undifferentiated."
+#: searx/templates/lookao/header_aside.html:3
+msgid "header_slogan"
+msgstr "Simple, undifferentiated."
 
-#: searx/templates/lookao/index.html:30
-msgid "本来无一物，何处惹尘埃。"
+#: searx/templates/lookao/header_aside.html:12
+msgid "我们尊重你的隐私"
+msgstr "We respect your privacy"
+
+#: searx/templates/lookao/header_aside.html:13
+msgid "只要不收集，便不会披露。"
+msgstr "We don’t gather privacy the data."
+
+#: searx/templates/lookao/header_aside.html:19
+msgid "用户体验高于一切"
+msgstr "Harmonized user experience"
+
+#: searx/templates/lookao/header_aside.html:20
+msgid "尽可能的简洁，保持冷静和克制。"
+msgstr "Clean, stay calm and exercise restraint."
+
+#: searx/templates/lookao/header_aside.html:26
+msgid "来试试搜索直达吧"
+msgstr "Give it a try site search"
+
+#: searx/templates/lookao/header_aside.html:27
+msgid "搜索框输入 # 可直达站内搜索。"
+msgstr "You can search it by simply typing #."
+
+#: searx/templates/lookao/header_aside.html:33
+msgid "分享给你的朋友们"
+msgstr "Share us with your friends"
+
+#: searx/templates/lookao/header_aside.html:34
+msgid "非常感谢您的支持与帮助！"
+msgstr "We'd very much appreciate your help!"
+
+#: searx/templates/lookao/index.html:14
+msgid "hero_tagline"
 msgstr "Nothing is secure, but nothing is."
 
 #: searx/templates/lookao/preferences.html:12
@@ -276,6 +319,22 @@ msgstr "Previous page"
 #: searx/templates/lookao/results.html:97
 msgid "下一页"
 msgstr "Next page"
+
+#: searx/templates/lookao/search.html:18
+msgid "选择你的要搜索的网站"
+msgstr "Choosing a site to search."
+
+#: searx/templates/lookao/search.html:19
+msgid "#引擎 搜索词"
+msgstr "#Engine Keywords"
+
+#: searx/templates/lookao/search.html:22
+msgid "（空格选中）"
+msgstr "(SPACE pick up)"
+
+#: searx/templates/lookao/search.html:23
+msgid "支持中英文模糊匹配"
+msgstr "Support Fuzzy Matching."
 
 #~ msgid "Localization"
 #~ msgstr ""
