@@ -4,7 +4,7 @@
 {% block content %}
     <div class="not_found_wrapper">
         <p>404 Not Found</p>
-        <p>There's nothing to see here.</p>
-        <p><a href="{{ url_for('index') }}">GO BACK!</a></p>
+        <p>{{ _('这里空空如也') }}</p>
+        <p><a href="{{ url_for('index') }}">{{ _('返回首页') }}</a></p>
     </div>
 {% endblock %}

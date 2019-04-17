@@ -1,0 +1,23 @@
+{% extends "lookao/base.html" %}
+{% block title %}{{ _('愿景') }} - {% endblock %}
+{% block footer %}{% include 'lookao/footer.html' %}{% endblock %}
+
+{% block content %}
+{% include 'lookao/header.html' %}
+
+<article id="content_wrapper" class="wide_page">
+    <h2 class="legend_title">{{ _('愿景') }}</h2>
+    <div class="page_content">
+        <p>构建 Lookao 时，主要想解决两个问题：</p>
+        <p>1. 大多数搜索引擎都不够简洁；</p>
+        <p>2. 部分搜索引擎会无下限地收集隐私。</p>
+        <br>
+        <p>一个优秀产品的发展，需要保持冷静和克制。</p>
+        <p>我们希望能够以善良的方式，做我们应该做的事。</p>
+        <p>并在未来的时代变迁中优雅地谢幕，最终优雅地死去。</p>
+        <br>
+        <p>如果你觉得我们还不错，希望能向你的朋友们推荐。</p>
+        <p>非常感谢您的支持！</p>
+    </div>
+</article>
+{% endblock %}

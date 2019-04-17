@@ -12,7 +12,6 @@
     <tr>
         <td>{{ engine.name }}</td>
         <td>{{ '%.02f'|format(engine.avg) }}</td>
-        <td class="percentage"><div style="width: {{ engine.percentage }}%">&nbsp;</div></td>
     </tr>
     {% endfor %}
 </table>

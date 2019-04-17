@@ -3,13 +3,7 @@
         <div class="header_logo">
             <a class="header_logo_link" href="{{ url_for('index') }}"></a>
         </div>
-        {% block search %}{% include 'lookao/search.html' %}{% endblock %}
+        {% include 'lookao/search.html' %}
     </div>
-    <div class="header_aside">
-        <span class="header_slogan">
-            {{ _('千人一面，只如初见。') }}
-            <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10843"><path d="M512 647.540364L235.008 372.363636 186.181818 420.957091 512 744.727273l325.818182-323.770182L788.992 372.363636z" p-id="10844"></path></svg>
-        </span>
-        <a href="/preferences">{{ _('设置') }}</a>
-    </div>
+    {% include 'lookao/header_aside.html' %}
 </header>

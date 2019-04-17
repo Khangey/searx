@@ -3,31 +3,15 @@
 
 {% block content %}
 <header id="header_wrapper">
-    <div class="header_aside">
-        <span class="header_slogan">
-            {{ _('千人一面，只如初见。') }}
-            <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10843"><path d="M512 647.540364L235.008 372.363636 186.181818 420.957091 512 744.727273l325.818182-323.770182L788.992 372.363636z" p-id="10844"></path></svg>
-        </span>
-        <a href="/preferences">{{ _('设置') }}</a>
-    </div>
+{% include 'lookao/header_aside.html' %}
 </header>
 <section class="hero_search">
     <div class="hero_logo">
-        <a class="hero_logo_link" href="{{ url_for('index') }}"></a>
+        <span class="hero_logo_link"></span>
     </div>
-
-    <form class="search_form" method="{{ method or 'POST' }}" action="{{ url_for('index') }}search">
-        <input class="search_keywords" name="q" {% if q %}value="{{ q }}"{% endif %} type="search" tabindex="1" autocomplete="off" autocapitalize="off" autocorrect="off" autofocus>
-        <span class="search_reset">
-            <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6079"><path d="M877.216 491.808M575.328 510.496 946.784 140.672c17.568-17.504 17.664-45.824 0.192-63.424-17.504-17.632-45.792-17.664-63.36-0.192L512.032 446.944 143.712 77.216C126.304 59.712 97.92 59.648 80.384 77.12 62.848 94.624 62.816 123.008 80.288 140.576l368.224 369.632L77.216 879.808c-17.568 17.504-17.664 45.824-0.192 63.424 8.736 8.8 20.256 13.216 31.776 13.216 11.424 0 22.848-4.352 31.584-13.056l371.36-369.696 371.68 373.088C892.192 955.616 903.68 960 915.168 960c11.456 0 22.912-4.384 31.648-13.088 17.504-17.504 17.568-45.824 0.096-63.392L575.328 510.496 575.328 510.496zM575.328 510.496" p-id="6080"></path></svg>
-        </span>
-        <button class="search_submit" type="submit">
-            <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1466"><path d="M995.830324 995.833186c-37.551478 37.555771-98.442595 37.555771-135.998366 0L690.099793 826.096728c-69.778525 44.731805-152.275014 71.438385-241.32652 71.438385C200.92894 897.535113 0.002848 696.614745 0.002848 448.770411 0.002848 200.920354 200.92894-1.4e-05 448.773273-1.4e-05c247.855781 0 448.770426 200.920368 448.770426 448.770426 0 89.047214-26.700857 171.536548-71.439816 241.333675l169.726442 169.725011C1033.386095 897.384867 1033.386095 958.277416 995.830324 995.833186L995.830324 995.833186zM448.773273 128.218472C271.747739 128.218472 128.23135 271.734861 128.23135 448.770411c0 177.031258 143.510665 320.547647 320.541923 320.547647 177.036982 0 320.547647-143.516389 320.547647-320.547647C769.32092 271.734861 625.810255 128.218472 448.773273 128.218472L448.773273 128.218472zM448.773273 128.218472" p-id="1467"></path></svg>
-        </button>
-    </form>
-
+    {% include 'lookao/search.html' %}
     <p class="hero_tagline">
-        {{ _('本来无一物，何处惹尘埃。') }}
+        {{ _('hero_tagline') }}
     </p>
 </section>
 {% endblock %}

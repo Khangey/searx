@@ -33,7 +33,7 @@
                         <span class="current_time_range">{{ _('不限时间') }}</span>
                         <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10843"><path d="M512 647.540364L235.008 372.363636 186.181818 420.957091 512 744.727273l325.818182-323.770182L788.992 372.363636z" p-id="10844"></path></svg>
                         <select class="filter_select select_time_range" name="time_range">
-                            <option value="" {{ "selected" if time_range=="" or not time_range  else ""}}>{{ _('不限时间') }}</option>
+                            <option value="" {{ "selected" if time_range=="" or not time_range else ""}}>{{ _('不限时间') }}</option>
                             <option value="day" {{ "selected" if time_range=="day" else ""}}>{{ _('一天内') }}</option>
                             <option value="week" {{ "selected" if time_range=="week" else ""}}>{{ _('一周内') }}</option>
                             <option value="month" {{ "selected" if time_range=="month" else ""}}>{{ _('一月内') }}</option>
@@ -44,9 +44,9 @@
                         <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10843"><path d="M512 647.540364L235.008 372.363636 186.181818 420.957091 512 744.727273l325.818182-323.770182L788.992 372.363636z" p-id="10844"></path></svg>
                         <select class="filter_select select_language" name='language'>
                             <option value="all" {% if current_language == 'all' %}selected="selected"{% endif %}>{{ _('所有语言') }}</option>
-                            {% for lang_id,lang_name,country_name,english_name in language_codes | sort(attribute=1) %}
+                            {%- for lang_id,lang_name,country_name,english_name in language_codes | sort(attribute=1) -%}
                             <option value="{{ lang_id }}" {% if lang_id == current_language %}selected="selected"{% endif %}>{{ lang_name }}</option>
-                            {% endfor %}
+                            {%- endfor -%}
                         </select>
                     </div>
                 </div>
@@ -56,9 +56,9 @@
 
     {% if infoboxes %}
     <aside class="sidebar_container">
-      {% for infobox in infoboxes %}
-         {% include 'lookao/infobox.html' %}
-      {% endfor %}
+    {% for infobox in infoboxes %}
+        {% include 'lookao/infobox.html' %}
+    {% endfor %}
     </aside>
     {% endif %}
 

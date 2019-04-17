@@ -1,0 +1,23 @@
+{% extends "lookao/base.html" %}
+{% block title %}{{ _('关于') }} - {% endblock %}
+{% block footer %}{% include 'lookao/footer.html' %}{% endblock %}
+
+{% block content %}
+{% include 'lookao/header.html' %}
+
+<article id="content_wrapper" class="wide_page">
+    <h2 class="legend_title">{{ _('关于') }}</h2>
+    <div class="page_content">
+        <p>Lookao 是一款轻量简洁的搜索引擎，它不会收集你的隐私、追踪你的上网行为。</p>
+        <p>也不会根据你的历史记录来干预搜索排名，搜索结果千人一面，内容更加纯粹。</p>
+        <br>
+        <p>试试在搜索框输入一个 # 符号，通过指令完成网址直达和站内搜索。</p>
+        <p>例如输入 [#知乎] 直达知乎首页，输入 [#知乎 你好] 进行站内搜索。</p>
+        <br>
+        <p>如果您有什么疑问或建议，可随时与我们联系。</p>
+        <br>
+        <p>Email: <a href="mailto:hi@lookao.com">hi@lookao.com</a></p>
+        <p>Telegram Group: <a href="https://t.me/lookao" {% if results_on_new_tab %}target="_blank" rel="noopener noreferrer"{% else %}rel="noreferrer"{% endif %}>t.me/lookao</a></p>
+    </div>
+</article>
+{% endblock %}

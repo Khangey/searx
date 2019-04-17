@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <title>{% block title %}{% endblock %}{{ instance_name }}</title>
-    <meta name="description" content="A privacy search engine that empowers you to seamlessly take control of your personal information online, without any tradeoffs. The search engine that doesn't track you.">
-    <meta name="keywords" content="lookao, search, search engine, privacy search, meta search, 搜索, 搜索引擎, 隐私搜索, 元搜索">
+    <meta name="description" content="Lookao 是一款非常轻量简洁的搜索引擎，完全尊重你的隐私。不会收集你的个人信息、不追踪你的上网行为，也不会根据历史记录来干预搜索排名。搜索结果千人一面，内容更加纯粹。">
+    <meta name="keywords" content="lookao,搜索,隐私搜索,搜索引擎,search,privacy search">
     <meta name="referrer" content="no-referrer">
     {% if preferences.get_value('style') %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/'+preferences.get_value('style')+'.min.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/'+preferences.get_value('style')+'.css') }}" type="text/css" />
     {% else %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/moon.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/moon.css') }}" type="text/css">
     {% endif %}
-    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/icon_64.png') }}">
-	<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon_512.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/icon_64.7d8de4.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon_512.258b55.png') }}">
+    {% if cdn_url %}
+    <link rel="dns-prefetch" href="{{ cdn_url }}"/>
+    {% endif %}
+    <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ url_for('opensearch') }}"/>
     {% block meta %}{% endblock %}
     {% block head %}
-    <link title="{{ instance_name }}" type="application/opensearchdescription+xml" rel="search" href="{{ url_for('opensearch') }}"/>
     {% endblock %}
     {% block styles %}
     {% endblock %}
@@ -27,7 +30,9 @@
     {% block content %}
     {% endblock %}
 </main>
-{% block footer %}{% endblock %}
-<script src="{{ url_for('static', filename='js/script.min.js') }}"></script>
+{% block footer %}
+{% endblock %}
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

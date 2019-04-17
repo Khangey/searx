@@ -4,7 +4,7 @@
 {% block content %}
 {% include 'lookao/header.html' %}
 
-<article id="content_wrapper" class="preferences_page">
+<article id="content_wrapper">
     <h2 class="legend_title">{{ _('设置') }}</h2>
     <form method="post" action="{{ url_for('preferences') }}">
     <fieldset>
@@ -25,9 +25,9 @@
                 {{ _('更改主界面的显示语言') }}
             </span>
             <select class="preferences_select_element" name='locale'>
-                {% for locale_id,locale_name in locales.items() | sort %}
+                {%- for locale_id,locale_name in locales.items() | sort -%}
                 <option value="{{ locale_id }}" {% if locale_id == current_locale %}selected="selected"{% endif %}>{{ locale_name }}</option>
-                {% endfor %}
+                {%- endfor -%}
             </select>
         </label>
         <label class="preferences_select_label">
@@ -37,9 +37,9 @@
             </span>
             <select class="preferences_select_element" name='language'>
                 <option value="all" {% if current_language == 'all' %}selected="selected"{% endif %}>{{ _('所有语言') }}</option>
-                {% for lang_id,lang_name,country_name,english_name in language_codes | sort(attribute=1) %}
+                {%- for lang_id,lang_name,country_name,english_name in language_codes | sort(attribute=1) -%}
                 <option value="{{ lang_id }}" {% if lang_id == current_language %}selected="selected"{% endif %}>{{ lang_name }}</option>
-                {% endfor %}
+                {%- endfor -%}
             </select>
         </label>
         <label class="preferences_select_label">
@@ -74,7 +74,7 @@
         </label>
     </fieldset>
     <div class="preferences_action">
-        <input type="submit" value="{{ _('保存') }}">
+        <input class="button_brand" type="submit" value="{{ _('保存') }}">
         <a class="preferences_reset" href="{{ url_for('clear_cookies') }}">{{ _('清空所有设置') }}</a>
     </div>
     </form>
