@@ -5,24 +5,24 @@
 {% include 'lookao/header.html' %}
 
 <article id="content_wrapper">
-    <h2 class="legend_title">{{ _('设置') }}</h2>
+    <h2 class="legend_title">{{ _('སྒྲིག་བཀོད།') }}</h2>
     <form method="post" action="{{ url_for('preferences') }}">
     <fieldset>
         <label class="preferences_select_label">
-            {{ _('主题风格') }}
+            {{ _('སྒྲོམ་གཞིའི་རྣམ་པ།') }}
             <span class="sub_label">
-                {{ _('自定义站点的主题风格') }}
+                {{ _('རང་གི་བློར་འབབ་པའི་རྣམ་པར་བསྒྱུར་ཆོག') }}
             </span>
             <select class="preferences_select_element" name='style'>
-                <option value="moon" >{{ _('月灰') }}</option>
-                <option value="coal" {% if preferences.get_value('style') == 'coal' %}selected="selected"{% endif %}>{{ _('炭黑') }}</option>
-                <option value="peach" {% if preferences.get_value('style') == 'peach' %}selected="selected"{% endif %}>{{ _('桃夭') }}</option>
+                <option value="moon" >{{ _('སྐྱ་བོ།') }}</option>
+                <option value="coal" {% if preferences.get_value('style') == 'coal' %}selected="selected"{% endif %}>{{ _('སྨག་ནག') }}</option>
+                <option value="peach" {% if preferences.get_value('style') == 'peach' %}selected="selected"{% endif %}>{{ _('ཟངས་དཀར།') }}</option>
             </select>
         </label>
         <label class="preferences_select_label">
-            {{ _('界面语言') }}
+            {{ _('འཆར་རྒྱུའི་སྐད་རིགས།') }}
             <span class="sub_label">
-                {{ _('更改主界面的显示语言') }}
+                {{ _('འཆར་ངོས་ཀྱི་སྐད་རིགས་བསྒྱུར་ཆོག') }}
             </span>
             <select class="preferences_select_element" name='locale'>
                 {%- for locale_id,locale_name in locales.items() | sort -%}
@@ -31,9 +31,9 @@
             </select>
         </label>
         <label class="preferences_select_label">
-            {{ _('搜索语言') }}
+            {{ _('འཚོལ་བཤེར་སྐད་རིགས།') }}
             <span class="sub_label">
-                {{ _('指定搜索结果内容的语言') }}
+                {{ _('འཚོལ་བཤེར་གྱི་སྐད་རིགས་བསྒྱུར་ཆོག') }}
             </span>
             <select class="preferences_select_element" name='language'>
                 <option value="all" {% if current_language == 'all' %}selected="selected"{% endif %}>{{ _('所有语言') }}</option>
@@ -43,29 +43,29 @@
             </select>
         </label>
         <label class="preferences_select_label">
-            {{ _('新的窗口') }}
+            {{ _('དྲ་ངོས་གསར་བ།') }}
             <span class="sub_label">
-                {{ _('在新窗口或标签页打开结果链接') }}
+                {{ _('དྲ་ངོས་གསར་བ་བཏོན་ནས་འཚོལ་འབྲས་འཆར་པར་བྱ།') }}
             </span>
             <select class="preferences_select_element" name='results_on_new_tab'>
-                <option value="1" {% if results_on_new_tab %}selected="selected"{% endif %}>{{ _('开启') }}</option>
-                <option value="0" {% if not results_on_new_tab %}selected="selected"{% endif %}>{{ _('关闭')}}</option>
+                <option value="1" {% if results_on_new_tab %}selected="selected"{% endif %}>{{ _('ཁ་ཕྱེས།') }}</option>
+                <option value="0" {% if not results_on_new_tab %}selected="selected"{% endif %}>{{ _('ཁ་རྒྱོབ།')}}</option>
             </select>
         </label>
         <label class="preferences_select_label">
-            {{ _('推广内容') }}
+            {{ _('ཚོང་ལས་བཀྲམ་སྤེལ་།') }}
             <span class="sub_label">
-                {{ _('尽管如此，但还是希望得到你的支持。') }}
+                {{ _('འདི་ཁ་ཕྱེས་ན་ཚོང་བརྡ་བཀྲམ་སྤེལ་འཆར་ངེས།') }}
             </span>
             <select class="preferences_select_element" name='ads_on'>
-                <option value="1" {% if ads_on %}selected="selected"{% endif %}>{{ _('开启') }}</option>
-                <option value="0" {% if not ads_on %}selected="selected"{% endif %}>{{ _('关闭')}}</option>
+                <option value="1" {% if ads_on %}selected="selected"{% endif %}>{{ _('ཁ་ཕྱེས།') }}</option>
+                <option value="0" {% if not ads_on %}selected="selected"{% endif %}>{{ _('ཁ་རྒྱོབ།')}}</option>
             </select>
         </label>
         <label class="preferences_select_label">
-            {{ _('请求方法') }}
+            {{ _('དྲ་འདྲེན་ཐབས་ལམ།') }}
             <span class="sub_label">
-                {{ _('更改 HTTP 请求方法，GET 使用体验更佳，POST 更安全。') }}
+                {{ _('དྲ་འདྲེན་བྱེད་ཐབས་བསྒྱུར་བཅོས།，GET ནི་ཅུང་ཟད་མགྱོགས།，POST ནི་དེ་བས་བདེ་འཇགས་ཡིན།') }}
             </span>
             <select class="preferences_select_element" name='method'>
                 <option value="POST" {% if method == 'POST' %}selected="selected"{% endif %}>POST</option>
@@ -75,7 +75,7 @@
     </fieldset>
     <div class="preferences_action">
         <input class="button_brand" type="submit" value="{{ _('保存') }}">
-        <a class="preferences_reset" href="{{ url_for('clear_cookies') }}">{{ _('清空所有设置') }}</a>
+        <a class="preferences_reset" href="{{ url_for('clear_cookies') }}">{{ _('སྒྲིག་བཀོད་ཡོད་ཚད་དོར།') }}</a>
     </div>
     </form>
 </article>

@@ -1,0 +1,344 @@
+# Chinese (Simplified, China) translations for .
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the  project.
+#
+# Translators:
+# Crystal RainSlide, 2018
+# Mingye Wang <arthur200126@gmail.com>, 2018
+# Sion Kazama, 2018
+# wenke, 2015
+# wenke, 2015-2018
+# Jsthon Wong 2019
+msgid ""
+msgstr ""
+"Project-Id-Version:  Lookao\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-04-10 02:04+0800\n"
+"PO-Revision-Date: 2022-12-10 08:32+0000\n"
+"Last-Translator: Khangey\n"
+"Language: Bo"
+"Language-Team: Lookao\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: searx/search.py:124 searx/search.py:176
+msgid "timeout"
+msgstr "འགོར་ཟིན།"
+
+#: searx/search.py:131
+msgid "request exception"
+msgstr "དྲ་འདྲེན་ནོར་སོང་།"
+
+#: searx/search.py:140
+msgid "unexpected crash"
+msgstr "ཡང་བསྐྱར་ཚོད་ལྟ།"
+
+#: searx/webapp.py:138
+msgid "files"
+msgstr "ཡིག་ཆ།"
+
+#: searx/webapp.py:139
+msgid "general"
+msgstr "དྲ་ངོས།"
+
+#: searx/webapp.py:140
+msgid "music"
+msgstr "གླུ་དབྱངས།"
+
+#: searx/webapp.py:141
+msgid "social media"
+msgstr "དྲ་འབྲེལ།"
+
+#: searx/webapp.py:142
+msgid "images"
+msgstr "པར་རིས།"
+
+#: searx/webapp.py:143
+msgid "videos"
+msgstr "བརྙན་ལམ།"
+
+#: searx/webapp.py:144
+msgid "it"
+msgstr "ཆ་འཕྲིན།"
+
+#: searx/webapp.py:145
+msgid "news"
+msgstr "新闻"
+
+#: searx/webapp.py:146
+msgid "map"
+msgstr "གསར་འགྱུར།"
+
+#: searx/webapp.py:147
+msgid "science"
+msgstr "རིག་གཞུང་།"
+
+#: searx/webapp.py:420 searx/webapp.py:703
+msgid "Invalid settings, please edit your preferences"
+msgstr "སྒྲིག་བཀོད་ནོར་བྱུང་།"
+
+#: searx/webapp.py:436
+msgid "Invalid settings"
+msgstr "སྒྲིག་བཀོད་ནུས་མེད།"
+
+#: searx/webapp.py:470 searx/webapp.py:516
+msgid "search error"
+msgstr "འཚོལ་འབྲས་མ་ཐོབ།"
+
+#: searx/webapp.py:553
+msgid "{minutes} minute(s) ago"
+msgstr "སྐར་མ{minutes}སྔོན་ལ། "
+
+#: searx/webapp.py:555
+msgid "{hours} hour(s), {minutes} minute(s) ago"
+msgstr "ཆུ་ཚོད་{hours}དང་ སྐར་མ{minutes}སྔོན་ལ། "
+
+#: searx/engines/__init__.py:213
+msgid "Engine time (sec)"
+msgstr "འཚོལ་ཡུན།）"
+
+#: searx/engines/__init__.py:217
+msgid "Page loads (sec)"
+msgstr "འདྲེན་ཡུན།"
+
+#: searx/engines/__init__.py:221
+msgid "Number of results"
+msgstr "འཚོལ་གྲངས།"
+
+#: searx/engines/__init__.py:225
+msgid "Scores"
+msgstr "ཐོབ་སྐར།"
+
+#: searx/engines/__init__.py:229
+msgid "Scores per result"
+msgstr "འཚོལ་གྲངས་རེའི་ཐོབ་སྐར།"
+
+#: searx/engines/__init__.py:233
+msgid "Errors"
+msgstr "ནོར་འཁྲུལ་བྱུང་།"
+
+#: searx/engines/google.py:217
+msgid "CAPTCHA required"
+msgstr ""
+
+#: searx/plugins/tracker_url_remover.py:26
+msgid "Tracker URL remover"
+msgstr "རྗེས་འདེད་དྲ་ཚིགས་གཡུག་ཤོག"
+
+#: searx/plugins/tracker_url_remover.py:27
+msgid "Remove trackers arguments from the returned URL"
+msgstr "བསྐྱར་སྒྲིག"
+
+#: searx/templates/lookao/404.html:7
+msgid "འཚོལ་འབྲས་གང་ཡང་མ་ཐོབ།"
+msgstr ""
+
+#: searx/templates/lookao/404.html:8
+msgid "ཕྱིར་ལོག"
+msgstr ""
+
+#: searx/templates/lookao/about.html:2 searx/templates/lookao/about.html:9
+#: searx/templates/lookao/footer.html:7
+msgid "ངེད་ཀྱི་སྐོར།"
+msgstr ""
+
+#: searx/templates/lookao/footer.html:6 searx/templates/lookao/privacy.html:2
+#: searx/templates/lookao/privacy.html:9
+msgid "སྒེར་གསང་།"
+msgstr ""
+
+#: searx/templates/lookao/footer.html:8 searx/templates/lookao/mission.html:2
+#: searx/templates/lookao/mission.html:9
+msgid "རེ་འདུན།"
+msgstr ""
+
+#: searx/templates/lookao/footer.html:9
+#: searx/templates/lookao/header_aside.html:6
+#: searx/templates/lookao/preferences.html:8
+msgid "སྒྲིག་བཀོད།"
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:3
+msgid "header_slogan"
+msgstr "ལས་ཕྱོད་ལྡན་པའི་བོད་ཡིག་འཚོལ་བཤེར།"
+
+#: searx/templates/lookao/header_aside.html:12
+msgid "དུས་དང་རྣམ་པ་ཀུན་དུ་ནང་དོན་གསར་འདྲེན།"
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:13
+msgid "སྒེར་གྱི་ཡིག་ཆ་དང་གསང་རྒྱ་ལ་བརྩི་འཇོག"
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:19
+msgid "བོད་ཡིག་དྲ་མང་ལ་སྟབས་བདེ་བཟོ་བ།"
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:20
+msgid "ཕྱིའི་ཆ་ལུགས་མིག་ལ་མཛེས་པའི་ཇུས་བཀོད།"
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:26
+msgid "འཚོལ་བཤེར་ནང་དོན་རྒྱལ་སྤྱིའི་དྲ་རྒྱ་དང་དུས་མཉམ་ཡིན།"
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:27
+msgid ""
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:33
+msgid "ཤ་ཉེ་སྤུན་མཆེད་ཚང་མར་བརྒྱུད་བསྐུར་བྱོས་དང་།"
+msgstr ""
+
+#: searx/templates/lookao/header_aside.html:34
+msgid "ཁྱེད་ཀྱི་རྒྱབ་སྤྱོད་དང་བེད་སྤྱོད་གཏོང་བར་ཐུགས་རྗེ་ཆེ།"
+msgstr ""
+
+#: searx/templates/lookao/index.html:14
+msgid "hero_tagline"
+msgstr "རང་སྐད་རང་ཡིག་རང་གིས་གཅེས།"
+
+#: searx/templates/lookao/preferences.html:12
+msgid "ཕྱིའི་ཆ་ལུགས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:14
+msgid "དྲ་ངོས་ཀྱི་རྣམ་པ་གདམ་གསེས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:17
+msgid "སྨུག་པོ།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:18
+msgid "སྨག་ནག"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:19
+msgid "ཟངས་དཀར།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:23
+msgid "སྐད་རིགས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:25
+msgid "འཆར་ངོས་ཀྱི་སྐད་རིགས་གདམ་གསེས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:34
+msgid "འཚོལ་བཤེར་ཡིག་རིགས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:36
+msgid "འཚོལ་བཤེར་ཡིག་རིགས་གདམ་གསེས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:39
+#: searx/templates/lookao/results.html:43
+#: searx/templates/lookao/results.html:46
+msgid "སྐད་རིགས་ཚང་མ།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:46
+msgid "དྲ་ངོས་གསར་བ།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:48
+msgid "དྲ་ངོས་གསར་བ་ནས་འཚོལ་བཤེར་དྲ་འདྲེན་འཆར།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:51
+#: searx/templates/lookao/preferences.html:61
+msgid "ཁ་ཕྱེས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:52
+#: searx/templates/lookao/preferences.html:62
+msgid "ཁ་རྒྱོབ།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:56
+msgid "ཚོང་བརྡ་བཀྲམ་སྤེལ།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:58
+msgid "ཁྱེད་ཀྱིས་རྒྱབ་སྐྱོར་ཡོད་པར་ཞུ།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:66
+msgid "དྲ་འདྲེན་བྱེད་ཐབས།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:68
+msgid "དྲ་འདྲེན་བྱེད་ཐབས་བསྒྱུར། GET ནི་བྱེད་ནུས་འཐུས་སྒོ་ཚང་བ་ཡིན། POST ནི་དེ་བས་བདེ་འཇགས་ཡིན།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:77
+msgid "སྒྲིག་བཀོད་གསོག་ཉར།"
+msgstr ""
+
+#: searx/templates/lookao/preferences.html:78
+msgid "སྒྲིག་བཀོད་ཚང་མ་དོར།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:18
+msgid "གདམ་གསེས།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:24
+msgid "ཕལ་ཆེརའཚོལ་འབྲས་ "
+msgstr ""
+
+#: searx/templates/lookao/results.html:24
+msgid "ལྷག་ཡོད།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:27
+msgid "ནང་དོན་གང་ཡང་རྙེད་མ་བྱུང་།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:33
+#: searx/templates/lookao/results.html:36
+msgid "དུས་ངེས་མེད།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:37
+msgid "ཉིན་གཅིག་གི་ཚུན་ཆད།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:38
+msgid "གཟའ་གཅིག་གི་ཚུན་ཆད།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:39
+msgid "ཟླ་གཅིག་གི་ཚུན་ཆད།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:86
+msgid "དྲ་ངོས་གོང་མ།"
+msgstr ""
+
+#: searx/templates/lookao/results.html:97
+msgid "དྲ་ངོས་ཞོལ་མ།"
+msgstr ""
+
+#: searx/templates/lookao/search.html:18
+msgid "དྲ་ཚིགས་གདམ་གསེས།"
+msgstr ""
+
+#: searx/templates/lookao/search.html:19
+msgid "ཐ་སྙད་འཚོལ་བཤེར།"
+msgstr ""
+
+#: searx/templates/lookao/search.html:22
+msgid "གདམ་བྱུང་།"
+msgstr ""
+
+#: searx/templates/lookao/search.html:23
+msgid "ཡིག་ནོར་འཚོལ་བཤེར་བྱེད་རུང་བ།"
+msgstr ""
+

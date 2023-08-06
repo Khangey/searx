@@ -42,4 +42,6 @@ language_codes = (
     (u"uk", u"Українська", u"", u"Ukrainian"),
     (u"vi", u"Tiếng Việt", u"", u"Vietnamese"),
     (u"zh", u"中文", u"", u"Chinese"),
+    (u"ja", u"བོད་ཡིག", u"", u"Tibetan
+        "),
 )
